@@ -1,3 +1,13 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "rules": {
+    "prefer-const": "warn",
+    "no-console": "warn",
+    "no-unused-vars":"warn",
+    "prettier/prettier": [
+      "error",
+      { "endOfLine": "auto" },
+      { "usePrettierrc": true }
+    ]
+  }
 }
