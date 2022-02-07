@@ -1,16 +1,13 @@
 import { Variants } from 'framer-motion'
+import { inTransition, outTransition } from '../utils/utils'
 
 export const slideRight: Variants = {
-  out: {
-    x: '-100%'
+  initial: {
+    x: '-100%',
+    transition: outTransition()
   },
-  in: {
+  animate: {
     x: '0%',
-    transition: {
-      type: 'spring',
-      damping: 18,
-      mass: 0.8,
-      stiffness: 80
-    }
+    transition: inTransition()
   }
 }

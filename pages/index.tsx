@@ -5,10 +5,16 @@ import Head from 'next/head'
 import NavLinks from '../components/Home/NavLinks'
 import Layout from '../components/UtilityComponents/Layout'
 import ProfileImage from '../components/Home/ProfileImage'
+import { motion } from 'framer-motion'
+import { staggerCtn } from '../animations/slideUp'
 
 const sx: SxProps = {
   root: {
-    height: '90vh',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100vw',
+    height: '100vh',
     display: 'flex',
     justifyContent: 'space-between'
   },
@@ -16,6 +22,10 @@ const sx: SxProps = {
     display: 'flex',
     alignItems: 'flex-end',
     py: 8
+  },
+  profileImageCtn: {
+    width: '40%',
+    backgroundColor: 'error.main'
   }
 }
 
@@ -27,12 +37,19 @@ const Home: NextPage = () => {
       </Head>
 
       <Layout>
-        <Box sx={sx.root}>
+        <Box
+          sx={sx.root}
+          component={motion.div}
+          variants={staggerCtn}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
           <Box sx={sx.navLinksCtn}>
             <NavLinks />
           </Box>
 
-          <Box>
+          <Box sx={sx.profileImageCtn}>
             <ProfileImage />
           </Box>
         </Box>

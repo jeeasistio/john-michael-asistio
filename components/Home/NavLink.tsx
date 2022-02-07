@@ -1,9 +1,10 @@
 import { motion, useAnimation } from 'framer-motion'
 import { slideRight } from '../../animations/slideRight'
-import BlendingTypography from '../StyledComponents'
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import Link from 'next/link'
+import { slideUp } from '../../animations/slideUp'
+import BlendingTypography from '../StyledComponents/BlendingTypography'
 
 const sx: SxProps = {
   linkCtn: {
@@ -31,10 +32,10 @@ const NavLink = ({ link }: Props) => {
   const hoverControls = useAnimation()
 
   const slideIn = () => {
-    hoverControls.start('in')
+    hoverControls.start('animate')
   }
   const slideOut = () => {
-    hoverControls.start('out')
+    hoverControls.start('initial')
   }
 
   return (
@@ -52,10 +53,16 @@ const NavLink = ({ link }: Props) => {
             sx={sx.overlay}
             component={motion.div}
             variants={slideRight}
-            initial="out"
+            initial="initial"
             animate={hoverControls}
           />
-          <BlendingTypography variant="h1">{link}</BlendingTypography>
+          <BlendingTypography
+            component={motion.h2}
+            variants={slideUp}
+            variant="h1"
+          >
+            {link}
+          </BlendingTypography>
         </Box>
       </a>
     </Link>
