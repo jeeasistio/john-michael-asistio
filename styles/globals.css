@@ -15,3 +15,7 @@ button {
   border: none;
   padding: 0;
 }
+
+.nav-image {
+  filter: grayscale(90%);
+}

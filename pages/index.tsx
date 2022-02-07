@@ -2,7 +2,7 @@ import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import { NextPage } from 'next'
 import Head from 'next/head'
-import NavLinks from '../components/Home/NavLinks'
+import HomeLinks from '../components/Home/HomeLinks'
 import Layout from '../components/UtilityComponents/Layout'
 import ProfileImage from '../components/Home/ProfileImage'
 import { motion } from 'framer-motion'
@@ -18,10 +18,11 @@ const sx: SxProps = {
     display: 'flex',
     justifyContent: 'space-between'
   },
-  navLinksCtn: {
+  homeLinksCtn: {
     display: 'flex',
     alignItems: 'flex-end',
-    py: 8
+    py: 8,
+    width: '60%'
   },
   profileImageCtn: {
     width: '40%',
@@ -45,10 +46,9 @@ const Home: NextPage = () => {
           animate="animate"
           exit="exit"
         >
-          <Box sx={sx.navLinksCtn}>
-            <NavLinks />
+          <Box sx={sx.homeLinksCtn}>
+            <HomeLinks />
           </Box>
-
           <Box sx={sx.profileImageCtn}>
             <ProfileImage />
           </Box>

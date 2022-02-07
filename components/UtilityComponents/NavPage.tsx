@@ -4,7 +4,8 @@ import { motion } from 'framer-motion'
 import { slideDown } from '../../animations/slideDown'
 import PhoneNumber from '../Contact/PhoneNumber'
 import SocialLinks from '../Contact/SocialLinks'
-import NavLinks from '../Home/NavLinks'
+import NavImage from './NavImage'
+import NavLinks from './NavLinks'
 
 const sx: SxProps = {
   root: {
@@ -19,15 +20,21 @@ const sx: SxProps = {
   },
   navImageCtn: {
     width: '30%',
-    backgroundColor: 'success.main'
+    backgroundColor: 'success.main',
+    position: 'relative'
   },
-  navLinksCtn: {
-    pt: 'calc(10vh + 24px)',
+  navContentCtn: {
+    py: 'calc(10vh + 16px)',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    justifyContent: 'space-between'
   },
-  underlay: {
-    background: 'info.main'
+  navLinksCtn: {},
+  contactCtn: {
+    display: 'flex',
+    flexDirection: 'column',
+    p: 4,
+    gap: 2
   }
 }
 
@@ -41,14 +48,16 @@ const NavPage = () => {
       animate="animate"
       exit="exit"
     >
-      <Box sx={sx.navImageCtn}></Box>
+      <Box sx={sx.navImageCtn}>
+        <NavImage />
+      </Box>
 
-      <Box sx={sx.navLinksCtn}>
-        <Box>
+      <Box sx={sx.navContentCtn}>
+        <Box sx={sx.navLinksCtn}>
           <NavLinks />
         </Box>
 
-        <Box>
+        <Box sx={sx.contactCtn}>
           <PhoneNumber />
           <SocialLinks />
         </Box>

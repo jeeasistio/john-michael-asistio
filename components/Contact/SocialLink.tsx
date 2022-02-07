@@ -1,18 +1,21 @@
-import { motion, useAnimation } from 'framer-motion'
+import { IconDefinition } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { SxProps } from '@mui/material'
+import { useAnimation, motion } from 'framer-motion'
 import { slideRight } from '../../animations/slideRight'
-import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
-import Link from 'next/link'
 import { slideUp } from '../../animations/slideUp'
-import BlendingTypography from '../StyledComponents/BlendingTypography'
+import Link from 'next/link'
 
 const sx: SxProps = {
-  linkCtn: {
-    py: 2,
-    pl: 6,
-    pr: 20,
+  iconCtn: {
+    border: 0.5,
+    p: 2,
+    width: 50,
+    height: 50,
     position: 'relative',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    cursor: 'pointer'
   },
   overlay: {
     position: 'absolute',
@@ -20,15 +23,16 @@ const sx: SxProps = {
     left: 0,
     width: '100%',
     height: '100%',
-    background: 'linear-gradient(to right, #ffffff 70%, #000000)'
+    backgroundColor: 'secondary.main'
   }
 }
 
 interface Props {
+  icon: IconDefinition
   link: string
 }
 
-const NavLink = ({ link }: Props) => {
+const SocialLink = ({ icon, link }: Props) => {
   const hoverControls = useAnimation()
 
   const slideIn = () => {
@@ -39,15 +43,16 @@ const NavLink = ({ link }: Props) => {
   }
 
   return (
-    <Link href={`/${link.toLowerCase()}`}>
-      <a>
+    <Link href={link} passHref>
+      <a target="_blank">
         <Box
-          sx={sx.linkCtn}
+          sx={sx.iconCtn}
           component={motion.div}
           onHoverStart={slideIn}
           onHoverEnd={slideOut}
           onTapStart={slideIn}
           onTapCancel={slideOut}
+          variants={slideUp}
         >
           <Box
             sx={sx.overlay}
@@ -56,17 +61,16 @@ const NavLink = ({ link }: Props) => {
             initial="initial"
             animate={hoverControls}
           />
-          <BlendingTypography
-            component={motion.h2}
-            variants={slideUp}
-            variant="h1"
-          >
-            {link}
-          </BlendingTypography>
+
+          <FontAwesomeIcon
+            style={{ mixBlendMode: 'difference' }}
+            size="2x"
+            icon={icon}
+          />
         </Box>
       </a>
     </Link>
   )
 }
 
-export default NavLink
+export default SocialLink
