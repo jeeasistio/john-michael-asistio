@@ -9,18 +9,18 @@ import NavLinks from './NavLinks'
 
 const sx: SxProps = {
   root: {
-    position: 'absolute',
+    position: 'fixed',
     top: 0,
     left: 0,
-    minWidth: '100vw',
+    width: '100vw',
     minHeight: '100vh',
     zIndex: 'speedDial',
     display: 'flex',
+    overflow: 'hidden',
     backgroundColor: 'primary.main'
   },
   navImageCtn: {
     width: '30%',
-    backgroundColor: 'success.main',
     position: 'relative'
   },
   navContentCtn: {

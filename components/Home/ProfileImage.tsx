@@ -7,14 +7,6 @@ const sx: SxProps = {
     position: 'relative',
     width: '100%',
     height: '100%'
-  },
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: '#00000033'
   }
 }
 
@@ -22,6 +14,7 @@ const ProfileImage = () => {
   return (
     <Box sx={sx.root}>
       <Image
+        className="profile-image"
         src="/profile.png"
         alt="profile"
         layout="fill"
@@ -29,8 +22,6 @@ const ProfileImage = () => {
         priority
         quality={100}
       />
-
-      <Box sx={sx.overlay} />
     </Box>
   )
 }

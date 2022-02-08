@@ -5,6 +5,7 @@ import Logo from './Logo'
 import NavButton from './NavButton'
 import { AnimatePresence, useCycle } from 'framer-motion'
 import NavPage from './NavPage'
+import { useRouter } from 'next/router'
 
 const sx: SxProps = {
   header: {
@@ -13,7 +14,7 @@ const sx: SxProps = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    px: 4,
+    px: 6,
     mixBlendMode: 'difference',
     zIndex: 'appBar'
   },
@@ -28,12 +29,16 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   const [open, handleClick] = useCycle(false, true)
+  const router = useRouter()
 
   return (
     <>
       <Box component="header" sx={sx.header}>
         <Logo />
-        <NavButton open={open} handleClick={handleClick} />
+
+        {router.pathname !== '/' && (
+          <NavButton open={open} handleClick={handleClick} />
+        )}
       </Box>
 
       <AnimatePresence exitBeforeEnter>{open && <NavPage />}</AnimatePresence>

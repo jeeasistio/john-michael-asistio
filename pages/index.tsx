@@ -2,11 +2,11 @@ import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import { NextPage } from 'next'
 import Head from 'next/head'
-import HomeLinks from '../components/Home/HomeLinks'
 import Layout from '../components/UtilityComponents/Layout'
 import ProfileImage from '../components/Home/ProfileImage'
 import { motion } from 'framer-motion'
 import { staggerCtn } from '../animations/slideUp'
+import HomeLinks from '../components/Home/HomeLinks'
 
 const sx: SxProps = {
   root: {
@@ -18,15 +18,14 @@ const sx: SxProps = {
     display: 'flex',
     justifyContent: 'space-between'
   },
-  homeLinksCtn: {
+  navLinksCtn: {
     display: 'flex',
     alignItems: 'flex-end',
     py: 8,
     width: '60%'
   },
   profileImageCtn: {
-    width: '40%',
-    backgroundColor: 'error.main'
+    width: '40%'
   }
 }
 
@@ -46,7 +45,7 @@ const Home: NextPage = () => {
           animate="animate"
           exit="exit"
         >
-          <Box sx={sx.homeLinksCtn}>
+          <Box sx={sx.navLinksCtn}>
             <HomeLinks />
           </Box>
           <Box sx={sx.profileImageCtn}>

@@ -2,9 +2,9 @@ import { motion, useAnimation } from 'framer-motion'
 import { slideRight } from '../../animations/slideRight'
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 import { slideUp } from '../../animations/slideUp'
-import Typography from '@mui/material/Typography'
 
 const sx: SxProps = {
   linkCtn: {

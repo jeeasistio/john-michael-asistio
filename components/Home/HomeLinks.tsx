@@ -5,7 +5,8 @@ import HomeLink from './HomeLink'
 const sx: SxProps = {
   root: {
     display: 'inline-flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    width: '100%'
   }
 }
 

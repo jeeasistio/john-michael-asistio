@@ -16,6 +16,9 @@ let theme = createTheme({
     text: {
       primary: '#ffffff'
     }
+  },
+  typography: {
+    fontSize: 16
   }
 })
 

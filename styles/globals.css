@@ -16,6 +16,10 @@ button {
   padding: 0;
 }
 
+.profile-image {
+  filter: brightness(80%);
+}
+
 .nav-image {
-  filter: grayscale(90%);
+  filter: grayscale(100%);
 }
