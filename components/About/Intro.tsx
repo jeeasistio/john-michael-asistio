@@ -8,10 +8,11 @@ import Container from '@mui/material/Container'
 
 const sx: SxProps = {
   root: {
-    minHeight: '90vh',
+    minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    pt: 10
   },
   aspiringCtn: {
     alignSelf: 'start'

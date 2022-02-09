@@ -8,18 +8,8 @@ import NavPage from './NavPage'
 import { useRouter } from 'next/router'
 
 const sx: SxProps = {
-  header: {
-    minHeight: '10vh',
-    position: 'sticky',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    px: 6,
-    mixBlendMode: 'difference',
-    zIndex: 'appBar'
-  },
   main: {
-    minHeight: '90vh'
+    minHeight: '100vh'
   }
 }
 
@@ -33,13 +23,11 @@ const Layout = ({ children }: Props) => {
 
   return (
     <>
-      <Box component="header" sx={sx.header}>
-        <Logo />
+      <Logo />
 
-        {router.pathname !== '/' && (
-          <NavButton open={open} handleClick={handleClick} />
-        )}
-      </Box>
+      {router.pathname !== '/' && (
+        <NavButton open={open} handleClick={handleClick} />
+      )}
 
       <AnimatePresence exitBeforeEnter>{open && <NavPage />}</AnimatePresence>
 

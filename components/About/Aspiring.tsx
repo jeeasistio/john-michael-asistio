@@ -3,6 +3,7 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import { slideUp } from '../../animations/slideUp'
+import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
 const sx: SxProps = {
   root: {},
@@ -17,38 +18,21 @@ const sx: SxProps = {
 const Aspiring = () => {
   return (
     <Box sx={sx.root}>
-      <Box sx={sx.textCtn}>
-        <Typography
-          sx={sx.text}
-          component={motion.h2}
-          variants={slideUp}
-          variant="h1"
-        >
-          An aspiring
-        </Typography>
-      </Box>
-
-      <Box sx={sx.textCtn}>
-        <Typography
-          sx={sx.text}
-          component={motion.h2}
-          variants={slideUp}
-          variant="h1"
-        >
-          fullstack web
-        </Typography>
-      </Box>
-
-      <Box sx={sx.textCtn}>
-        <Typography
-          sx={sx.text}
-          component={motion.h2}
-          variants={slideUp}
-          variant="h1"
-        >
-          developer
-        </Typography>
-      </Box>
+      <TransitioningTypography
+        text="An Aspiring"
+        variant="h1"
+        textStyle={{ fontWeight: 'bold' }}
+      />
+      <TransitioningTypography
+        text="fullstack web"
+        variant="h1"
+        textStyle={{ fontWeight: 'bold' }}
+      />
+      <TransitioningTypography
+        text="developer"
+        variant="h1"
+        textStyle={{ fontWeight: 'bold' }}
+      />
     </Box>
   )
 }

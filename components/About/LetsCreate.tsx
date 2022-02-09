@@ -1,14 +1,7 @@
 import Box from '@mui/material/Box'
-import BlendingTypography from '../StyledComponents/BlendingTypography'
 import { motion } from 'framer-motion'
-import { slideUp, staggerCtn } from '../../animations/slideUp'
-import { SxProps } from '@mui/system'
-
-const sx: SxProps = {
-  textCtn: {
-    overflow: 'hidden'
-  }
-}
+import { staggerCtn } from '../../animations/slideUp'
+import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
 const LetsCreate = () => {
   return (
@@ -19,40 +12,21 @@ const LetsCreate = () => {
       whileInView="animate"
       viewport={{ margin: '-50%', once: true }}
     >
-      <Box sx={sx.textCtn}>
-        <BlendingTypography
-          variant="h2"
-          component={motion.h2}
-          variants={slideUp}
-          align="center"
-        >
-          Let&apos;s create
-        </BlendingTypography>
-      </Box>
-
-      <Box sx={sx.textCtn}>
-        <BlendingTypography
-          sx={sx.textCtn}
-          variant="h2"
-          component={motion.h2}
-          variants={slideUp}
-          align="center"
-        >
-          something new
-        </BlendingTypography>
-      </Box>
-
-      <Box sx={sx.textCtn}>
-        <BlendingTypography
-          sx={sx.textCtn}
-          variant="h2"
-          component={motion.h2}
-          variants={slideUp}
-          align="center"
-        >
-          together!
-        </BlendingTypography>
-      </Box>
+      <TransitioningTypography
+        text="Let's create"
+        variant="h2"
+        textStyle={{ textAlign: 'center' }}
+      />
+      <TransitioningTypography
+        text="something new"
+        variant="h2"
+        textStyle={{ textAlign: 'center' }}
+      />
+      <TransitioningTypography
+        text="together!"
+        variant="h2"
+        textStyle={{ textAlign: 'center' }}
+      />
     </Box>
   )
 }

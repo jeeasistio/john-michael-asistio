@@ -2,9 +2,8 @@ import { motion, useAnimation } from 'framer-motion'
 import { slideRight } from '../../animations/slideRight'
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 import Link from 'next/link'
-import { slideUp } from '../../animations/slideUp'
+import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
 const sx: SxProps = {
   linkCtn: {
@@ -56,9 +55,7 @@ const HomeLink = ({ link }: Props) => {
             initial="initial"
             animate={hoverControls}
           />
-          <Typography component={motion.h2} variants={slideUp} variant="h1">
-            {link}
-          </Typography>
+          <TransitioningTypography blending={false} text={link} variant="h1" />
         </Box>
       </a>
     </Link>

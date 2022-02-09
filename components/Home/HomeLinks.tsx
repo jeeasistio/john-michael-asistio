@@ -10,7 +10,7 @@ const sx: SxProps = {
   }
 }
 
-const LINKS = ['ABOUT', 'WORK', 'CONTACT']
+const LINKS = ['About', 'Work', 'Contact']
 
 const HomeLinks = () => {
   return (

@@ -1,6 +1,6 @@
 export const inTransition = () => ({
   type: 'spring',
-  damping: 18,
+  damping: 15,
   mass: 0.8,
   stiffness: 80
 })

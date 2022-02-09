@@ -6,7 +6,12 @@ import OpenMenuButton from './OpenMenuButton'
 
 const sx: SxProps = {
   root: {
-    overflow: 'hidden'
+    mixBlendMode: 'difference',
+    zIndex: 'appBar',
+    overflow: 'hidden',
+    position: 'fixed',
+    top: '5%',
+    right: '5%'
   }
 }
 

@@ -3,8 +3,7 @@ import { slideRight } from '../../animations/slideRight'
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import Link from 'next/link'
-import { slideUp } from '../../animations/slideUp'
-import BlendingTypography from '../StyledComponents/BlendingTypography'
+import TransitioningTypography from './TransitioningTypography'
 
 const sx: SxProps = {
   linkCtn: {
@@ -56,13 +55,7 @@ const NavLink = ({ link }: Props) => {
             initial="initial"
             animate={hoverControls}
           />
-          <BlendingTypography
-            component={motion.h2}
-            variants={slideUp}
-            variant="h1"
-          >
-            {link}
-          </BlendingTypography>
+          <TransitioningTypography text={link} variant="h1" />
         </Box>
       </a>
     </Link>

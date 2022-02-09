@@ -8,7 +8,8 @@ import BlendingTypography from '../StyledComponents/BlendingTypography'
 
 const sx: SxProps = {
   root: {
-    overflow: 'hidden'
+    overflow: 'hidden',
+    mixBlendMode: 'difference'
   },
   iconCtn: {
     border: 0.5,
