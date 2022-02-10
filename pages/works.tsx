@@ -6,10 +6,12 @@ import Layout from '../components/UtilityComponents/Layout'
 import WorksList from '../components/Works/WorksList'
 
 const sx: SxProps = {
-  root: {},
+  root: {
+    minHeight: '100vh'
+  },
   worksCtn: {
     display: 'flex',
-    minHeight: '100vh'
+    position: 'relative'
   }
 }
 
