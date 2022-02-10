@@ -5,7 +5,6 @@ import Logo from './Logo'
 import NavButton from './NavButton'
 import { AnimatePresence, useCycle } from 'framer-motion'
 import NavPage from './NavPage'
-import { useRouter } from 'next/router'
 
 const sx: SxProps = {
   main: {
@@ -19,15 +18,12 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   const [open, handleClick] = useCycle(false, true)
-  const router = useRouter()
 
   return (
     <>
       <Logo />
 
-      {router.pathname !== '/' && (
-        <NavButton open={open} handleClick={handleClick} />
-      )}
+      <NavButton open={open} handleClick={handleClick} />
 
       <AnimatePresence exitBeforeEnter>{open && <NavPage />}</AnimatePresence>
 

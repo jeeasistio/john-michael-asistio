@@ -18,7 +18,47 @@ let theme = createTheme({
     }
   },
   typography: {
-    fontSize: 16
+    fontSize: 16,
+    fontFamily: '"Raleway", "Roboto"',
+    h1: {
+      fontFamily: 'Raleway'
+    },
+    h2: {
+      fontFamily: 'Raleway'
+    },
+    h3: {
+      fontFamily: 'Raleway'
+    },
+    h4: {
+      fontFamily: 'Raleway'
+    },
+    h5: {
+      fontFamily: 'Raleway'
+    },
+    h6: {
+      fontFamily: 'Raleway'
+    },
+    subtitle1: {
+      fontFamily: 'Roboto'
+    },
+    subtitle2: {
+      fontFamily: 'Roboto'
+    },
+    body1: {
+      fontFamily: 'Roboto'
+    },
+    body2: {
+      fontFamily: 'Roboto'
+    },
+    button: {
+      fontFamily: 'Raleway'
+    },
+    caption: {
+      fontFamily: 'Roboto'
+    },
+    overline: {
+      fontFamily: 'Roboto'
+    }
   }
 })
 

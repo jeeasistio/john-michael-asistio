@@ -13,7 +13,7 @@ const sx: SxProps = {
   },
   iconCtn: {
     border: 0.5,
-    py: 1,
+    py: '6px',
     px: 2,
     position: 'relative',
     overflow: 'hidden',
@@ -63,7 +63,7 @@ const ContactButton = () => {
               animate={hoverControls}
             />
 
-            <BlendingTypography>Contact</BlendingTypography>
+            <BlendingTypography variant="button">Contact</BlendingTypography>
           </Box>
         </a>
       </Link>

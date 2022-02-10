@@ -19,11 +19,3 @@ button {
   border: none;
   padding: 0;
 }
-
-.profile-image {
-  filter: brightness(80%);
-}
-
-.nav-image {
-  filter: grayscale(100%);
-}
