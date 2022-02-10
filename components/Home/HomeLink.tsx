@@ -4,6 +4,7 @@ import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import Link from 'next/link'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
+import { slideUp } from '../../animations/slideUp'
 
 const sx: SxProps = {
   linkCtn: {
@@ -19,7 +20,7 @@ const sx: SxProps = {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: '#465909'
+    backgroundColor: 'secondary.main'
   }
 }
 
@@ -55,7 +56,7 @@ const HomeLink = ({ link }: Props) => {
             initial="initial"
             animate={hoverControls}
           />
-          <TransitioningTypography blending={false} text={link} variant="h1" />
+          <TransitioningTypography text={link} variant="h1" />
         </Box>
       </a>
     </Link>

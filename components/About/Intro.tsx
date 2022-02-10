@@ -12,7 +12,7 @@ const sx: SxProps = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
-    pt: 10
+    pt: 12
   },
   aspiringCtn: {
     alignSelf: 'start'

@@ -1,8 +1,5 @@
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import { motion } from 'framer-motion'
-import { slideUp } from '../../animations/slideUp'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
 const sx: SxProps = {

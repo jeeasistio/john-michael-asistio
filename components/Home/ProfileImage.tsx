@@ -15,7 +15,7 @@ const ProfileImage = () => {
     <Box sx={sx.root}>
       <Image
         className="profile-image"
-        src="/profile.png"
+        src="/"
         alt="profile"
         layout="fill"
         objectFit="cover"

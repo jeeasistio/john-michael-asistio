@@ -14,7 +14,7 @@ const sx: SxProps = {
     top: 0,
     left: 0,
     width: '100vw',
-    height: '100vh',
+    minHeight: '100vh',
     display: 'flex',
     justifyContent: 'space-between'
   },
@@ -25,7 +25,9 @@ const sx: SxProps = {
     width: '60%'
   },
   profileImageCtn: {
-    width: '40%'
+    width: '40%',
+    backgroundColor: 'secondary.main',
+    display: { xs: 'none', md: 'block' }
   }
 }
 

@@ -16,12 +16,13 @@ const sx: SxProps = {
     minHeight: '100vh',
     zIndex: 'speedDial',
     display: 'flex',
-    overflow: 'hidden',
     backgroundColor: 'primary.main'
   },
   navImageCtn: {
     width: '30%',
-    position: 'relative'
+    position: 'relative',
+    backgroundColor: 'secondary.main',
+    display: { xs: 'none', md: 'block' }
   },
   navContentCtn: {
     py: 'calc(10vh + 16px)',

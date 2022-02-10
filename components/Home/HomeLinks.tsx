@@ -5,12 +5,11 @@ import HomeLink from './HomeLink'
 const sx: SxProps = {
   root: {
     display: 'inline-flex',
-    flexDirection: 'column',
-    width: '100%'
+    flexDirection: 'column'
   }
 }
 
-const LINKS = ['About', 'Work', 'Contact']
+const LINKS = ['About', 'Works', 'Contact']
 
 const HomeLinks = () => {
   return (

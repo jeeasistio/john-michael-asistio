@@ -9,7 +9,7 @@ const sx: SxProps = {
   }
 }
 
-const LINKS = ['ABOUT', 'WORK', 'CONTACT']
+const LINKS = ['ABOUT', 'WORKS', 'CONTACT']
 
 const NavLinks = () => {
   return (
