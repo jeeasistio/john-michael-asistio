@@ -3,7 +3,7 @@ import { inTransition, outTransition } from '../utils/utils'
 
 export const slideDown: Variants = {
   initial: {
-    y: '-100%',
+    y: '-105%',
     transition: {
       ...outTransition(),
       when: 'beforeChildren',
@@ -19,7 +19,7 @@ export const slideDown: Variants = {
     }
   },
   exit: {
-    y: '-100%',
+    y: '-105%',
     transition: {
       ...outTransition(),
       when: 'afterChildren',

@@ -9,7 +9,7 @@ import Link from 'next/link'
 
 const sx: SxProps = {
   iconCtn: {
-    border: 0.5,
+    border: 1,
     p: 2,
     width: 50,
     height: 50,

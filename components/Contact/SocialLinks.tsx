@@ -11,7 +11,8 @@ const sx: SxProps = {
   root: {
     display: 'flex',
     gap: 8,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    mixBlendMode: 'difference'
   }
 }
 

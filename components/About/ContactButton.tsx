@@ -12,7 +12,7 @@ const sx: SxProps = {
     mixBlendMode: 'difference'
   },
   iconCtn: {
-    border: 0.5,
+    border: 1,
     py: '6px',
     px: 2,
     position: 'relative',
@@ -40,9 +40,9 @@ const ContactButton = () => {
   }
 
   return (
-    <Box sx={sx.root}>
-      <Link href="/contact">
-        <a>
+    <Link href="/contact">
+      <a>
+        <Box sx={sx.root}>
           <Box
             sx={sx.iconCtn}
             component={motion.div}
@@ -51,9 +51,6 @@ const ContactButton = () => {
             onTapStart={slideIn}
             onTapCancel={slideOut}
             variants={slideUp}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ margin: '-20%', once: true }}
           >
             <Box
               sx={sx.overlay}
@@ -65,9 +62,9 @@ const ContactButton = () => {
 
             <BlendingTypography variant="button">Contact</BlendingTypography>
           </Box>
-        </a>
-      </Link>
-    </Box>
+        </Box>
+      </a>
+    </Link>
   )
 }
 

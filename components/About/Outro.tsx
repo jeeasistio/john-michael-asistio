@@ -1,9 +1,10 @@
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
 import LetsCreate from './LetsCreate'
 import ContactButton from './ContactButton'
 import SocialLinks from './SocialLinks'
+import { motion } from 'framer-motion'
+import { staggerCtn } from '../../animations/slideUp'
 
 const sx: SxProps = {
   root: {
@@ -18,7 +19,14 @@ const sx: SxProps = {
 
 const Outro = () => {
   return (
-    <Box sx={sx.root}>
+    <Box
+      sx={sx.root}
+      component={motion.div}
+      variants={staggerCtn}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ margin: '-50%', once: true }}
+    >
       <Box>
         <LetsCreate />
       </Box>

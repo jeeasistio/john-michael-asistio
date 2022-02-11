@@ -15,7 +15,7 @@ export const staggerCtn: Variants = {
 
 export const slideUp: Variants = {
   initial: {
-    y: '100%',
+    y: '105%',
     transition: outTransition()
   },
   animate: {
@@ -23,7 +23,7 @@ export const slideUp: Variants = {
     transition: inTransition()
   },
   exit: {
-    y: '100%',
+    y: '105%',
     transition: outTransition()
   }
 }

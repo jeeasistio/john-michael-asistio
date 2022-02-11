@@ -3,6 +3,7 @@ import Box from '@mui/material/Box'
 import { motion, useAnimation } from 'framer-motion'
 import { slideRight } from '../../animations/slideRight'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
+import Link from 'next/link'
 
 const sx: SxProps = {
   root: {
@@ -37,24 +38,28 @@ const SocialLink = ({ name, link }: Props) => {
   }
 
   return (
-    <Box
-      sx={sx.root}
-      component={motion.div}
-      onHoverStart={slideIn}
-      onHoverEnd={slideOut}
-      onTapStart={slideIn}
-      onTapCancel={slideOut}
-    >
-      <Box
-        sx={sx.underline}
-        component={motion.div}
-        variants={slideRight}
-        initial="initial"
-        animate={hoverControls}
-      />
+    <Link href={link} passHref>
+      <a target="_blank">
+        <Box
+          sx={sx.root}
+          component={motion.div}
+          onHoverStart={slideIn}
+          onHoverEnd={slideOut}
+          onTapStart={slideIn}
+          onTapCancel={slideOut}
+        >
+          <Box
+            sx={sx.underline}
+            component={motion.div}
+            variants={slideRight}
+            initial="initial"
+            animate={hoverControls}
+          />
 
-      <TransitioningTypography text={name} />
-    </Box>
+          <TransitioningTypography text={name} />
+        </Box>
+      </a>
+    </Link>
   )
 }
 

@@ -18,8 +18,7 @@ const sx: SxProps = {
     width: { xs: '100vw', lg: '50vw' },
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    border: 2
+    alignItems: 'center'
   }
 }
 

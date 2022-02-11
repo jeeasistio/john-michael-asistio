@@ -8,7 +8,7 @@ import TransitioningTypography from '../UtilityComponents/TransitioningTypograph
 
 const sx: SxProps = {
   root: {
-    ':nth-child(1)': {
+    ':nth-of-type(1)': {
       borderTop: 2
     },
     borderBottom: 2,

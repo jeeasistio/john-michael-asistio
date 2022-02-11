@@ -5,13 +5,7 @@ import TransitioningTypography from '../UtilityComponents/TransitioningTypograph
 
 const LetsCreate = () => {
   return (
-    <Box
-      component={motion.div}
-      variants={staggerCtn}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ margin: '-50%', once: true }}
-    >
+    <Box>
       <TransitioningTypography
         text="Let's create"
         variant="h2"
