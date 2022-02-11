@@ -9,11 +9,10 @@ import { inTransition } from '../../utils/utils'
 const sx: SxProps = {
   root: {},
   imageCtn: {
-    height: '600px',
-    width: '600px',
+    height: '550px',
+    width: '550px',
     backgroundColor: 'success.main',
     position: 'relative',
-    overflow: 'hidden',
     cursor: 'pointer'
   },
   imageInnerCtn: {
@@ -21,22 +20,35 @@ const sx: SxProps = {
     height: '100%'
   },
   textCtn: {
-    px: 2,
     overflow: 'hidden'
+  },
+  underlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'secondary.main',
+    display: 'flex',
+    alignItems: 'flex-end',
+    p: 2
   }
 }
 
 const Work = () => {
-  const zoomControls = useAnimation()
   const hoverControls = useAnimation()
+  const imageControls = useAnimation()
+  const textControls = useAnimation()
 
   const handleHover = () => {
-    hoverControls.start('animate')
-    zoomControls.start({ scale: 1.1, transition: inTransition() })
+    hoverControls.start({ x: '12%', y: '12%', transition: inTransition() })
+    imageControls.start({ x: '-8%', y: '-8%', transition: inTransition() })
+    textControls.start('animate')
   }
   const handleHoverLeave = () => {
-    hoverControls.start('initial')
-    zoomControls.start({ scale: 1, transition: inTransition() })
+    hoverControls.start({ x: '4%', y: '4%', transition: inTransition() })
+    imageControls.start({ x: '-4%', y: '-4%', transition: inTransition() })
+    textControls.start('initial')
   }
 
   return (
@@ -48,35 +60,42 @@ const Work = () => {
       onTapStart={handleHover}
       onTapCancel={handleHoverLeave}
     >
-      <Box sx={sx.imageCtn}>
+      <Box
+        sx={sx.imageCtn}
+        component={motion.div}
+        initial={{ x: '-4%', y: '-4%' }}
+        animate={imageControls}
+      >
         <Box
-          sx={sx.imageInnerCtn}
+          sx={sx.underlay}
           component={motion.div}
-          animate={zoomControls}
-          initial={{ scale: 1 }}
-        >
-          <Image
-            className="work-image"
-            src="/save_mother_earth.jpg"
-            alt="work"
-            layout="fill"
-            objectFit="cover"
-            priority
-            quality={100}
-          />
-        </Box>
-      </Box>
-
-      <Box sx={sx.textCtn}>
-        <Typography
-          variant="h6"
-          component={motion.h6}
-          variants={slideUp}
-          initial="initial"
+          initial={{ x: '4%', y: '4%' }}
           animate={hoverControls}
         >
-          Shopy
-        </Typography>
+          <Box sx={sx.textCtn}>
+            <Typography
+              align="center"
+              color="primary"
+              variant="h4"
+              component={motion.h4}
+              variants={slideUp}
+              initial="initial"
+              animate={textControls}
+            >
+              Shopy
+            </Typography>
+          </Box>
+        </Box>
+
+        <Image
+          className="work-image"
+          src="/save_mother_earth.jpg"
+          alt="work"
+          layout="fill"
+          objectFit="cover"
+          priority
+          quality={100}
+        />
       </Box>
     </Box>
   )
