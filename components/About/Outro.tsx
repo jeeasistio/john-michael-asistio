@@ -3,6 +3,7 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import LetsCreate from './LetsCreate'
 import ContactButton from './ContactButton'
+import SocialLinks from './SocialLinks'
 
 const sx: SxProps = {
   root: {
@@ -17,7 +18,7 @@ const sx: SxProps = {
 
 const Outro = () => {
   return (
-    <Container sx={sx.root} maxWidth="lg">
+    <Box sx={sx.root}>
       <Box>
         <LetsCreate />
       </Box>
@@ -25,7 +26,11 @@ const Outro = () => {
       <Box>
         <ContactButton />
       </Box>
-    </Container>
+
+      <Box>
+        <SocialLinks />
+      </Box>
+    </Box>
   )
 }
 

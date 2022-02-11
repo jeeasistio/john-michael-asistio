@@ -15,7 +15,7 @@ const NavImage = () => {
     <Box sx={sx.root}>
       <Image
         className="nav-image"
-        src="/"
+        src="/profile.jpg"
         alt="nav-profile"
         layout="fill"
         objectFit="cover"

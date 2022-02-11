@@ -13,6 +13,7 @@ import {
   useViewportScroll
 } from 'framer-motion'
 import { inTransition } from '../utils/utils'
+import SelectedWorks from '../components/About/SelectedWorks'
 
 const sx: SxProps = {
   aboutCtn: {
@@ -44,12 +45,11 @@ const About = () => {
               opacity: opacity
             }}
           />
-          <Box>
-            <Intro />
-          </Box>
 
+          <Intro />
           <Dos />
           <Wants />
+          <SelectedWorks />
           <Outro />
         </Box>
       </Layout>

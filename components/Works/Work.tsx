@@ -1,7 +1,6 @@
 import { SxProps } from '@mui/material'
 import Box from '@mui/material/Box'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
 // import Typography from '@mui/material/Typography'
 // import Image from 'next/image'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'

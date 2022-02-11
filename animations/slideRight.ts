@@ -3,7 +3,7 @@ import { inTransition, outTransition } from '../utils/utils'
 
 export const slideRight: Variants = {
   initial: {
-    x: '-100%',
+    x: '-101%',
     transition: outTransition()
   },
   animate: {
