@@ -10,8 +10,7 @@ import {
 } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { parallaxTransition } from '../../utils/utils'
-
-const WORKS = [1, 2, 3, 4, 5]
+import works from '../../lib/works'
 
 const sx: SxProps = {
   workCtn: {
@@ -49,9 +48,9 @@ const WorksList = () => {
           x
         }}
       >
-        {WORKS.map((work) => (
-          <Box sx={sx.workCtn} key={work} component={motion.div}>
-            <Work />
+        {works.map((work) => (
+          <Box sx={sx.workCtn} key={work.title} component={motion.div}>
+            <Work {...work} />
           </Box>
         ))}
       </motion.div>

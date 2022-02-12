@@ -33,9 +33,7 @@ const Intro = () => {
       whileInView="animate"
       viewport={{ once: true }}
     >
-      <Box sx={sx.aspiringCtn}>
-        <Aspiring />
-      </Box>
+      <Aspiring />
 
       <Box sx={sx.hiCtn}>
         <Hi />

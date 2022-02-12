@@ -11,9 +11,9 @@ const sx: SxProps = {
   imageCtn: {
     height: '550px',
     width: '550px',
-    backgroundColor: 'success.main',
     position: 'relative',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    filter: 'grayscale(100%)'
   },
   imageInnerCtn: {
     width: '100%',
@@ -35,19 +35,31 @@ const sx: SxProps = {
   }
 }
 
-const Work = () => {
+interface Props extends Work {}
+
+const Work = ({ title, image }: Props) => {
   const hoverControls = useAnimation()
   const imageControls = useAnimation()
   const textControls = useAnimation()
 
   const handleHover = () => {
     hoverControls.start({ x: '12%', y: '12%', transition: inTransition() })
-    imageControls.start({ x: '-8%', y: '-8%', transition: inTransition() })
+    imageControls.start({
+      x: '-6%',
+      y: '-6%',
+      filter: 'grayscale(0%)',
+      transition: inTransition()
+    })
     textControls.start('animate')
   }
   const handleHoverLeave = () => {
-    hoverControls.start({ x: '4%', y: '4%', transition: inTransition() })
-    imageControls.start({ x: '-4%', y: '-4%', transition: inTransition() })
+    hoverControls.start({ x: '0%', y: '0%', transition: inTransition() })
+    imageControls.start({
+      x: '-0%',
+      y: '-0%',
+      filter: 'grayscale(100%)',
+      transition: inTransition()
+    })
     textControls.start('initial')
   }
 
@@ -63,13 +75,13 @@ const Work = () => {
       <Box
         sx={sx.imageCtn}
         component={motion.div}
-        initial={{ x: '-4%', y: '-4%' }}
+        initial={{ x: '-0%', y: '-0%' }}
         animate={imageControls}
       >
         <Box
           sx={sx.underlay}
           component={motion.div}
-          initial={{ x: '4%', y: '4%' }}
+          initial={{ x: '0%', y: '0%' }}
           animate={hoverControls}
         >
           <Box sx={sx.textCtn}>
@@ -82,14 +94,13 @@ const Work = () => {
               initial="initial"
               animate={textControls}
             >
-              Shopy
+              {title}
             </Typography>
           </Box>
         </Box>
 
         <Image
-          className="work-image"
-          src="/save_mother_earth.jpg"
+          src={image}
           alt="work"
           layout="fill"
           objectFit="cover"

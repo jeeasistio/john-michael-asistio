@@ -1,13 +1,12 @@
 import Box from '@mui/material/Box'
+import works from '../../lib/works'
 import Work from './Work'
-
-const WORKS = [1, 2, 3, 4, 5]
 
 const WorksList = () => {
   return (
     <Box>
-      {WORKS.map((work) => (
-        <Work key={work} />
+      {works.map((work) => (
+        <Work key={work.title} {...work} />
       ))}
     </Box>
   )

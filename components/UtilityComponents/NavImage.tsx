@@ -6,7 +6,8 @@ const sx: SxProps = {
   root: {
     position: 'relative',
     width: '100%',
-    height: '100%'
+    height: '100%',
+    filter: 'grayscale(100%)'
   }
 }
 
@@ -14,7 +15,6 @@ const NavImage = () => {
   return (
     <Box sx={sx.root}>
       <Image
-        className="nav-image"
         src="/profile.jpg"
         alt="nav-profile"
         layout="fill"

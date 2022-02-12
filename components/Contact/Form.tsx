@@ -4,13 +4,14 @@ import TextField from '@mui/material/TextField'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 import { slideUp } from '../../animations/slideUp'
 import { motion } from 'framer-motion'
+import SendButton from './SendButton'
 
 const sx: SxProps = {
   root: {
     mixBlendMode: 'difference'
   },
   fieldCtn: {
-    my: 2,
+    mb: 3,
     overflow: 'hidden'
   },
   inputStyle: {
@@ -42,6 +43,7 @@ const Form = () => {
           size="small"
           component={motion.div}
           variants={slideUp}
+          fullWidth
         />
       </Box>
 
@@ -52,8 +54,11 @@ const Form = () => {
           size="small"
           component={motion.div}
           variants={slideUp}
+          fullWidth
         />
       </Box>
+
+      <SendButton />
     </Box>
   )
 }

@@ -1,8 +1,10 @@
 import { SxProps } from '@mui/material'
 import Box from '@mui/material/Box'
 import { motion, useAnimation, useCycle } from 'framer-motion'
+import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { slideRight } from '../../animations/slideRight'
+import { Work } from '../../lib/works'
 import getRelativeCoordinates from '../../utils/getRelativeCoordinates'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
@@ -23,16 +25,23 @@ const sx: SxProps = {
     height: '100%',
     backgroundColor: 'secondary.main'
   },
-  image: {
+  imageCtn: {
     position: 'absolute',
-    width: 50,
-    height: 50,
-    margin: '-4%',
-    backgroundColor: 'error.main'
+    width: 250,
+    height: 300,
+    margin: '-14%',
+    pointerEvents: 'none'
+  },
+  imageInnerCtn: {
+    position: 'relative',
+    width: '100%',
+    height: '100%'
   }
 }
 
-const Work = () => {
+interface Props extends Work {}
+
+const Work = ({ title, image }: Props) => {
   const [mousePosition, setMousePosition] = useState({})
   const [showing, show] = useCycle(0, 1)
   const ref = useRef(null)
@@ -73,12 +82,23 @@ const Work = () => {
       />
 
       <Box
-        sx={sx.image}
+        sx={sx.imageCtn}
         component={motion.div}
         animate={{ x: mousePosition.x, y: mousePosition.y, opacity: showing }}
-      />
+      >
+        <Box sx={sx.imageInnerCtn}>
+          <Image
+            src={image}
+            alt="work"
+            layout="fill"
+            objectFit="cover"
+            priority
+            quality={100}
+          />
+        </Box>
+      </Box>
 
-      <TransitioningTypography text="SHOPY" variant="h1" />
+      <TransitioningTypography text={title.toUpperCase()} variant="h1" />
     </Box>
   )
 }
