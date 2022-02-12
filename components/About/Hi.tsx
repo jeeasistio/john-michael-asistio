@@ -2,7 +2,6 @@ import { SxProps } from '@mui/system'
 import { staggerCtn } from '../../animations/slideUp'
 import { motion } from 'framer-motion'
 import Container from '@mui/material/Container'
-import ParallaxCtn from '../UtilityComponents/ParallaxCtn'
 import Box from '@mui/material/Box'
 import Hi from './WhatIAm'
 
@@ -11,7 +10,7 @@ const sx: SxProps = {
     minHeight: '50vh',
     display: 'flex',
     flexDirection: 'column',
-    transform: 'translateY(100px)'
+    justifyContent: 'center'
   },
   hiCtn: {
     alignSelf: 'flex-end'
@@ -20,21 +19,19 @@ const sx: SxProps = {
 
 const HiCtn = () => {
   return (
-    <ParallaxCtn>
-      <Container
-        sx={sx.root}
-        maxWidth="lg"
-        component={motion.div}
-        variants={staggerCtn}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-      >
-        <Box sx={sx.hiCtn}>
-          <Hi />
-        </Box>
-      </Container>
-    </ParallaxCtn>
+    <Container
+      sx={sx.root}
+      maxWidth="lg"
+      component={motion.div}
+      variants={staggerCtn}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+    >
+      <Box sx={sx.hiCtn}>
+        <Hi />
+      </Box>
+    </Container>
   )
 }
 

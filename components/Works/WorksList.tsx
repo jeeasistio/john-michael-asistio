@@ -11,8 +11,14 @@ import {
 import { useRef, useState } from 'react'
 import { parallaxTransition } from '../../utils/utils'
 import works from '../../lib/works'
+import BlendingTypography from '../StyledComponents/BlendingTypography'
 
 const sx: SxProps = {
+  title: {
+    position: 'fixed',
+    top: '5%',
+    left: '5%'
+  },
   workCtn: {
     width: { xs: '100vw', lg: '50vw' },
     display: 'flex',
@@ -37,6 +43,12 @@ const WorksList = () => {
 
   return (
     <>
+      <Box sx={sx.title}>
+        <BlendingTypography component="h1" variant="h2">
+          SELECTED WORKS
+        </BlendingTypography>
+      </Box>
+
       <motion.div
         ref={scrollRef}
         style={{

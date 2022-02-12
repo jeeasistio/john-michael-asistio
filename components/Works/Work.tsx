@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography'
 import Image from 'next/image'
 import { slideUp } from '../../animations/slideUp'
 import { inTransition } from '../../utils/utils'
+import { Work } from '../../lib/works'
 
 const sx: SxProps = {
   root: {},
@@ -12,8 +13,7 @@ const sx: SxProps = {
     height: '550px',
     width: '550px',
     position: 'relative',
-    cursor: 'pointer',
-    filter: 'grayscale(100%)'
+    cursor: 'pointer'
   },
   imageInnerCtn: {
     width: '100%',
@@ -47,7 +47,6 @@ const Work = ({ title, image }: Props) => {
     imageControls.start({
       x: '-6%',
       y: '-6%',
-      filter: 'grayscale(0%)',
       transition: inTransition()
     })
     textControls.start('animate')
@@ -57,7 +56,6 @@ const Work = ({ title, image }: Props) => {
     imageControls.start({
       x: '-0%',
       y: '-0%',
-      filter: 'grayscale(100%)',
       transition: inTransition()
     })
     textControls.start('initial')

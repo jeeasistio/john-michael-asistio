@@ -2,6 +2,7 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 import { SxProps } from '@mui/system'
+import { useRouter } from 'next/router'
 
 const sx: SxProps = {
   root: {
@@ -14,9 +15,13 @@ const sx: SxProps = {
 }
 
 const Logo = () => {
+  const router = useRouter()
+
+  if (router.pathname === '/works') return null
+
   return (
     <Box sx={sx.root}>
-      <Typography component="h1">
+      <Typography component="h1" variant="h6">
         <Link href="/about">
           <a>JOHN MICHAEL ASISTIO</a>
         </Link>
