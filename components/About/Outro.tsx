@@ -5,6 +5,7 @@ import ContactButton from './ContactButton'
 import SocialLinks from './SocialLinks'
 import { motion } from 'framer-motion'
 import { staggerCtn } from '../../animations/slideUp'
+import ParallaxCtn from '../UtilityComponents/ParallaxCtn'
 
 const sx: SxProps = {
   root: {
@@ -13,32 +14,35 @@ const sx: SxProps = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    transform: 'translateY(100px)',
     gap: 5
   }
 }
 
 const Outro = () => {
   return (
-    <Box
-      sx={sx.root}
-      component={motion.div}
-      variants={staggerCtn}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ margin: '-50%', once: true }}
-    >
-      <Box>
-        <LetsCreate />
-      </Box>
+    <ParallaxCtn>
+      <Box
+        sx={sx.root}
+        component={motion.div}
+        variants={staggerCtn}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ margin: '-50%', once: true }}
+      >
+        <Box>
+          <LetsCreate />
+        </Box>
 
-      <Box>
-        <ContactButton />
-      </Box>
+        <Box>
+          <ContactButton />
+        </Box>
 
-      <Box>
-        <SocialLinks />
+        <Box>
+          <SocialLinks />
+        </Box>
       </Box>
-    </Box>
+    </ParallaxCtn>
   )
 }
 

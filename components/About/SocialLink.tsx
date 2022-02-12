@@ -56,7 +56,10 @@ const SocialLink = ({ name, link }: Props) => {
             animate={hoverControls}
           />
 
-          <TransitioningTypography text={name} />
+          <TransitioningTypography
+            text={name}
+            textStyle={{ color: 'secondary.contrastText' }}
+          />
         </Box>
       </a>
     </Link>

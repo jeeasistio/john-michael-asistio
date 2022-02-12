@@ -14,7 +14,7 @@ export const outTransition = () => ({
 
 export const parallaxTransition = () => ({
   type: 'spring',
-  damping: 18,
-  mass: 0.5,
+  damping: 20,
+  mass: 1,
   stiffness: 60
 })

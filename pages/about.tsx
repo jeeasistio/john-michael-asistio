@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Layout from '../components/UtilityComponents/Layout'
 import Box from '@mui/material/Box'
-import Intro from '../components/About/Intro'
 import Dos from '../components/About/Dos'
 import Wants from '../components/About/Wants'
 import Outro from '../components/About/Outro'
@@ -14,6 +13,8 @@ import {
 } from 'framer-motion'
 import { inTransition } from '../utils/utils'
 import SelectedWorks from '../components/About/SelectedWorks'
+import Aspiring from '../components/About/Aspiring'
+import Hi from '../components/About/Hi'
 
 const sx: SxProps = {
   aboutCtn: {
@@ -46,7 +47,8 @@ const About = () => {
             }}
           />
 
-          <Intro />
+          <Aspiring />
+          <Hi />
           <Dos />
           <Wants />
           <SelectedWorks />

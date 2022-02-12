@@ -1,6 +1,8 @@
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import SocialLink from './SocialLink'
+import { staggerCtn } from '../../animations/slideUp'
+import { motion } from 'framer-motion'
 
 const sx: SxProps = {
   root: {
@@ -18,7 +20,14 @@ const SOCMEDIAS = [
 
 const SocialLinks = () => {
   return (
-    <Box sx={sx.root}>
+    <Box
+      sx={sx.root}
+      component={motion.div}
+      variants={staggerCtn}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+    >
       {SOCMEDIAS.map((media, index) => (
         <SocialLink key={index} name={media.name} link={media.link} />
       ))}

@@ -18,19 +18,15 @@ interface Props {
 const ParallaxCtn = ({ children, boxStyle }: Props) => {
   const ref = useRef(null)
   const [elemTop, setElemTop] = useState(0)
-  const [elemHeight, setElemHeight] = useState(0)
+  const [vh, setVh] = useState(0)
   const { scrollY } = useViewportScroll()
 
   useIsomorphicLayoutEffect(() => {
     setElemTop(ref.current.offsetTop)
-    setElemHeight(ref.current.offsetHeight)
+    setVh(window.innerHeight)
   }, [ref, scrollY])
 
-  const yValue = useTransform(
-    scrollY,
-    [elemTop, elemTop + elemHeight],
-    [0, -200]
-  )
+  const yValue = useTransform(scrollY, [elemTop - vh, elemTop + vh], [0, -200])
   const y = useSpring(yValue, parallaxTransition())
 
   return (

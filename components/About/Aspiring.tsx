@@ -1,37 +1,34 @@
 import { SxProps } from '@mui/system'
-import Box from '@mui/material/Box'
-import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
+import Aspiring from './WhatIWannaBe'
+import { staggerCtn } from '../../animations/slideUp'
+import { motion } from 'framer-motion'
+import Container from '@mui/material/Container'
+import ParallaxCtn from '../UtilityComponents/ParallaxCtn'
 
 const sx: SxProps = {
-  root: {},
-  textCtn: {
-    overflow: 'hidden'
-  },
-  text: {
-    fontWeight: 'bold'
+  aspiringCtn: {
+    minHeight: '50vh',
+    transform: 'translateY(100px)',
+    pt: 12
   }
 }
 
-const Aspiring = () => {
+const AspiringCtn = () => {
   return (
-    <Box sx={sx.root}>
-      <TransitioningTypography
-        text="An Aspiring"
-        variant="h1"
-        textStyle={{ fontWeight: 'bold' }}
-      />
-      <TransitioningTypography
-        text="fullstack web"
-        variant="h1"
-        textStyle={{ fontWeight: 'bold' }}
-      />
-      <TransitioningTypography
-        text="developer"
-        variant="h1"
-        textStyle={{ fontWeight: 'bold' }}
-      />
-    </Box>
+    <ParallaxCtn>
+      <Container
+        sx={sx.aspiringCtn}
+        maxWidth="lg"
+        component={motion.div}
+        variants={staggerCtn}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+      >
+        <Aspiring />
+      </Container>
+    </ParallaxCtn>
   )
 }
 
-export default Aspiring
+export default AspiringCtn

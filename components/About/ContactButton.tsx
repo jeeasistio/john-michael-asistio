@@ -13,11 +13,13 @@ const sx: SxProps = {
   },
   iconCtn: {
     border: 1,
+    borderColor: 'primary.main',
     py: '6px',
     px: 2,
     position: 'relative',
     overflow: 'hidden',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    backgroundColor: 'secondary.main'
   },
   overlay: {
     position: 'absolute',
@@ -25,7 +27,7 @@ const sx: SxProps = {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: 'secondary.main'
+    backgroundColor: 'primary.main'
   }
 }
 
@@ -42,7 +44,13 @@ const ContactButton = () => {
   return (
     <Link href="/contact">
       <a>
-        <Box sx={sx.root}>
+        <Box
+          sx={sx.root}
+          component={motion.div}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           <Box
             sx={sx.iconCtn}
             component={motion.div}
