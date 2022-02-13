@@ -4,16 +4,14 @@ import { staggerCtn } from '../../animations/slideUp'
 import { motion } from 'framer-motion'
 import Container from '@mui/material/Container'
 import WhatIWant from './WhatIWant'
+import CollabPhotos from './CollabPhotos'
 
 const sx: SxProps = {
   root: {
     minHeight: '50vh',
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center'
-  },
-  whatIWantCtn: {
-    alignSelf: 'flex-end'
+    justifyContent: 'space-around',
+    alignItems: 'center'
   }
 }
 
@@ -28,9 +26,8 @@ const Wants = () => {
       whileInView="animate"
       viewport={{ margin: '-20%', once: true }}
     >
-      <Box sx={sx.whatIWantCtn}>
-        <WhatIWant />
-      </Box>
+      <CollabPhotos />
+      <WhatIWant />
     </Container>
   )
 }

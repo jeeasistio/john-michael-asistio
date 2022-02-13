@@ -1,19 +1,16 @@
 import { SxProps } from '@mui/system'
-import Box from '@mui/material/Box'
 import { staggerCtn } from '../../animations/slideUp'
 import { motion } from 'framer-motion'
 import Container from '@mui/material/Container'
 import WhatIDo from './WhatIDo'
+import FrontEndPhotos from './FrontEndPhotos'
 
 const sx: SxProps = {
   root: {
     minHeight: '50vh',
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center'
-  },
-  whatIDoCtn: {
-    alignSelf: 'start'
+    alignItems: 'center',
+    justifyContent: 'space-around'
   }
 }
 
@@ -28,9 +25,8 @@ const Dos = () => {
       whileInView="animate"
       viewport={{ margin: '-20%', once: true }}
     >
-      <Box sx={sx.whatIDoCtn}>
-        <WhatIDo />
-      </Box>
+      <WhatIDo />
+      <FrontEndPhotos />
     </Container>
   )
 }

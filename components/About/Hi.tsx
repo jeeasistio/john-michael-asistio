@@ -2,18 +2,15 @@ import { SxProps } from '@mui/system'
 import { staggerCtn } from '../../animations/slideUp'
 import { motion } from 'framer-motion'
 import Container from '@mui/material/Container'
-import Box from '@mui/material/Box'
 import Hi from './WhatIAm'
+import ExplorePhotos from './ExplorePhotos'
 
 const sx: SxProps = {
   root: {
     minHeight: '50vh',
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center'
-  },
-  hiCtn: {
-    alignSelf: 'flex-end'
+    justifyContent: 'space-around',
+    alignItems: 'center'
   }
 }
 
@@ -28,9 +25,8 @@ const HiCtn = () => {
       whileInView="animate"
       viewport={{ once: true }}
     >
-      <Box sx={sx.hiCtn}>
-        <Hi />
-      </Box>
+      <ExplorePhotos />
+      <Hi />
     </Container>
   )
 }

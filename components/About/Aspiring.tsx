@@ -3,10 +3,14 @@ import Aspiring from './WhatIWannaBe'
 import { staggerCtn } from '../../animations/slideUp'
 import { motion } from 'framer-motion'
 import Container from '@mui/material/Container'
+import ProfilePhotos from './ProfilePhotos'
 
 const sx: SxProps = {
   aspiringCtn: {
     minHeight: '50vh',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
     pt: 12
   }
 }
@@ -23,6 +27,7 @@ const AspiringCtn = () => {
       viewport={{ once: true }}
     >
       <Aspiring />
+      <ProfilePhotos />
     </Container>
   )
 }
