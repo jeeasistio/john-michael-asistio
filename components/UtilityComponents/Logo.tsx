@@ -21,7 +21,7 @@ const Logo = () => {
 
   return (
     <Box sx={sx.root}>
-      <Typography component="h1" variant="h6">
+      <Typography component="h1">
         <Link href="/about">
           <a>JOHN MICHAEL ASISTIO</a>
         </Link>

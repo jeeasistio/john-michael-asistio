@@ -23,7 +23,7 @@ const Dos = () => {
       variants={staggerCtn}
       initial="initial"
       whileInView="animate"
-      viewport={{ margin: '-20%', once: true }}
+      viewport={{ margin: '-50%', once: true }}
     >
       <WhatIDo />
       <FrontEndPhotos />

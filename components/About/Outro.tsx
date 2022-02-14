@@ -14,7 +14,7 @@ const sx: SxProps = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    transform: 'translateY(200px)',
+    transform: 'translateY(100px)',
     gap: 5
   }
 }

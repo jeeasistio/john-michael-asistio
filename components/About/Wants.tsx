@@ -24,7 +24,7 @@ const Wants = () => {
       variants={staggerCtn}
       initial="initial"
       whileInView="animate"
-      viewport={{ margin: '-20%', once: true }}
+      viewport={{ margin: '-50%', once: true }}
     >
       <CollabPhotos />
       <WhatIWant />

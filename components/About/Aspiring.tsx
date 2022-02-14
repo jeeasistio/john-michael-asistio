@@ -11,7 +11,8 @@ const sx: SxProps = {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    pt: 12
+    pt: 12,
+    isolation: 'isolate'
   }
 }
 
@@ -19,7 +20,7 @@ const AspiringCtn = () => {
   return (
     <Container
       sx={sx.aspiringCtn}
-      maxWidth="lg"
+      maxWidth="xl"
       component={motion.div}
       variants={staggerCtn}
       initial="initial"

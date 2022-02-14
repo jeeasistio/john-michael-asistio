@@ -5,13 +5,16 @@ import theme from '../styles/themes'
 import { CssBaseline } from '@mui/material'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import { AnimatePresence } from 'framer-motion'
 config.autoAddCss = false
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline>
-        <Component {...pageProps} />
+        <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
       </CssBaseline>
     </ThemeProvider>
   )
