@@ -7,7 +7,7 @@ import ParallaxCtn from '../UtilityComponents/ParallaxCtn'
 
 const sx: SxProps = {
   root: {
-    display: { xs: 'none', lg: 'flex' },
+    display: { xs: 'none', md: 'flex' },
     alignItems: 'center',
     overflow: 'hidden',
     transform: 'translateY(100px)',
@@ -19,8 +19,8 @@ const sx: SxProps = {
     width: 'min-content'
   },
   collab1InnerCtn: {
-    width: 450,
-    height: 300,
+    width: { md: 400, lg: 450 },
+    height: { md: 250, lg: 300 },
     position: 'relative'
   }
 }

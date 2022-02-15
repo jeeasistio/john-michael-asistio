@@ -7,7 +7,7 @@ import ParallaxCtn from '../UtilityComponents/ParallaxCtn'
 
 const sx: SxProps = {
   root: {
-    display: { xs: 'none', lg: 'flex' },
+    display: { xs: 'none', md: 'flex' },
     alignItems: 'center',
     overflow: 'hidden',
     transform: 'translateY(100px)',
@@ -19,8 +19,8 @@ const sx: SxProps = {
     width: 'min-content'
   },
   nextInnerCtn: {
-    width: 200,
-    height: 200,
+    width: { md: 150, lg: 200 },
+    height: { md: 150, lg: 200 },
     position: 'relative'
   },
   muiCtn: {
@@ -29,8 +29,8 @@ const sx: SxProps = {
     width: 'min-content'
   },
   muiInnerCtn: {
-    width: 200,
-    height: 200,
+    width: { md: 150, lg: 200 },
+    height: { md: 150, lg: 200 },
     position: 'relative'
   }
 }

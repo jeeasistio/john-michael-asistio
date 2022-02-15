@@ -7,7 +7,7 @@ import ParallaxCtn from '../UtilityComponents/ParallaxCtn'
 
 const sx: SxProps = {
   root: {
-    display: { xs: 'none', lg: 'flex' },
+    display: { xs: 'none', md: 'flex' },
     alignItems: 'center',
     minHeight: '50vh',
     overflow: 'hidden',
@@ -21,8 +21,8 @@ const sx: SxProps = {
     zIndex: 2
   },
   profile1InnerCtn: {
-    width: 200,
-    height: 300,
+    width: { md: 150, lg: 200 },
+    height: { md: 250, lg: 300 },
     position: 'relative'
   },
   profile2Ctn: {
@@ -31,8 +31,8 @@ const sx: SxProps = {
     width: 'min-content'
   },
   profile2InnerCtn: {
-    width: 200,
-    height: 200,
+    width: { md: 150, lg: 200 },
+    height: { md: 150, lg: 200 },
     position: 'relative'
   }
 }

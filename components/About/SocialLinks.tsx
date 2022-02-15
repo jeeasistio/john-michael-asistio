@@ -28,8 +28,8 @@ const SocialLinks = () => {
       whileInView="animate"
       viewport={{ once: true }}
     >
-      {SOCMEDIAS.map((media, index) => (
-        <SocialLink key={index} name={media.name} link={media.link} />
+      {SOCMEDIAS.map((media, i) => (
+        <SocialLink key={i} name={media.name} link={media.link} />
       ))}
     </Box>
   )

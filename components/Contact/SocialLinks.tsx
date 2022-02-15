@@ -10,6 +10,7 @@ import SocialLink from './SocialLink'
 const sx: SxProps = {
   root: {
     display: 'flex',
+    flexWrap: 'wrap',
     gap: 8,
     overflow: 'hidden',
     mixBlendMode: 'difference'
@@ -25,8 +26,8 @@ const SOCMEDIAS = [
 const SocialLinks = () => {
   return (
     <Box sx={sx.root}>
-      {SOCMEDIAS.map((media, index) => (
-        <SocialLink key={index} icon={media.icon} link={media.link} />
+      {SOCMEDIAS.map((media, i) => (
+        <SocialLink key={i} icon={media.icon} link={media.link} />
       ))}
     </Box>
   )

@@ -10,6 +10,7 @@ const LetsCreate = () => {
       variants={staggerCtn}
       initial="initial"
       whileInView="animate"
+      viewport={{ once: true }}
     >
       <TransitioningTypography text="Let's create" variant="h1" />
       <TransitioningTypography text="something new" variant="h1" />

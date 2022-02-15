@@ -8,12 +8,10 @@ import NavPage from './NavPage'
 
 const sx: SxProps = {
   main: {
-    minHeight: '100vh',
-    position: 'relative',
-    overflow: 'hidden'
+    minHeight: '100vh'
   },
   overlay1: {
-    position: 'absolute',
+    position: 'fixed',
     top: 0,
     left: 0,
     width: '100%',
@@ -22,7 +20,7 @@ const sx: SxProps = {
     zIndex: 'tooltip'
   },
   overlay2: {
-    position: 'absolute',
+    position: 'fixed',
     top: 0,
     left: 0,
     width: '100%',
@@ -40,7 +38,7 @@ const Layout = ({ children }: Props) => {
   const [open, handleClick] = useCycle(false, true)
 
   return (
-    <>
+    <Box sx={sx.root}>
       <Logo />
 
       <NavButton open={open} handleClick={handleClick} />
@@ -126,7 +124,7 @@ const Layout = ({ children }: Props) => {
 
         {children}
       </Box>
-    </>
+    </Box>
   )
 }
 
