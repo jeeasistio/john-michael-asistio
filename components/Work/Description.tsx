@@ -10,11 +10,16 @@ const sx: SxProps = {
   }
 }
 
-const Description = () => {
+interface Props {
+  title: string
+  description: string
+}
+
+const Description = ({ title, description }: Props) => {
   return (
     <Box sx={sx.root}>
       <Box>
-        <TransitioningTypography text="Shopy" variant="h1" />
+        <TransitioningTypography text={title} variant="h1" />
       </Box>
 
       <Box p={[0, '2%']}>

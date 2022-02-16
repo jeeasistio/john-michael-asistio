@@ -2,6 +2,7 @@ import { SxProps } from '@mui/material'
 import Box from '@mui/material/Box'
 import { motion, useAnimation, useCycle } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRef, useState } from 'react'
 import { slideRight } from '../../animations/slideRight'
 import { Work } from '../../lib/works'
@@ -15,7 +16,8 @@ const sx: SxProps = {
     },
     borderBottom: 2,
     p: 3,
-    position: 'relative'
+    position: 'relative',
+    cursor: 'pointer'
   },
   overlay: {
     position: 'absolute',
@@ -62,44 +64,55 @@ const Work = ({ title, image }: Props) => {
   }
 
   return (
-    <Box
-      ref={ref}
-      sx={sx.root}
-      component={motion.div}
-      onHoverStart={slideIn}
-      onHoverEnd={slideOut}
-      onTapStart={slideIn}
-      onTapCancel={slideOut}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+    <Link
+      href={`/work/${title.toLowerCase().replaceAll(' ', '-')}`}
+      scroll={false}
     >
-      <Box
-        sx={sx.overlay}
-        component={motion.div}
-        variants={slideRight}
-        initial="initial"
-        animate={hoverControls}
-      />
-
-      <Box
-        sx={sx.imageCtn}
-        component={motion.div}
-        animate={{ x: mousePosition.x, y: mousePosition.y, opacity: showing }}
-      >
-        <Box sx={sx.imageInnerCtn}>
-          <Image
-            src={image}
-            alt="work"
-            layout="fill"
-            objectFit="cover"
-            priority
-            quality={100}
+      <a>
+        <Box
+          ref={ref}
+          sx={sx.root}
+          component={motion.div}
+          onHoverStart={slideIn}
+          onHoverEnd={slideOut}
+          onTapStart={slideIn}
+          onTapCancel={slideOut}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Box
+            sx={sx.overlay}
+            component={motion.div}
+            variants={slideRight}
+            initial="initial"
+            animate={hoverControls}
           />
-        </Box>
-      </Box>
 
-      <TransitioningTypography text={title.toUpperCase()} variant="h1" />
-    </Box>
+          <Box
+            sx={sx.imageCtn}
+            component={motion.div}
+            animate={{
+              x: mousePosition.x,
+              y: mousePosition.y,
+              opacity: showing
+            }}
+          >
+            <Box sx={sx.imageInnerCtn}>
+              <Image
+                src={image}
+                alt="work"
+                layout="fill"
+                objectFit="cover"
+                priority
+                quality={100}
+              />
+            </Box>
+          </Box>
+
+          <TransitioningTypography text={title.toUpperCase()} variant="h1" />
+        </Box>
+      </a>
+    </Link>
   )
 }
 

@@ -5,7 +5,11 @@ const sx: SxProps = {
   root: {}
 }
 
-const CoverImage = () => {
+interface Props {
+  image: string
+}
+
+const CoverImage = ({ image }: Props) => {
   return (
     <Box sx={sx.root}>
       <Box></Box>

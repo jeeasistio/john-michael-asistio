@@ -3,6 +3,7 @@ export interface Work {
   description: string
   image: string
   link: string
+  index: number
 }
 
 const works: Work[] = [
@@ -10,31 +11,36 @@ const works: Work[] = [
     title: 'Save Mother Earth',
     description: '',
     image: '/save_mother_earth.jpg',
-    link: '#'
+    link: 'save-mother-earth',
+    index: 1
   },
   {
     title: 'Nescoffee',
     description: '',
     image: '/nescoffee.jpg',
-    link: '#'
+    link: 'nescoffee',
+    index: 2
   },
   {
     title: 'Bookshelf',
     description: '',
     image: '/bookshelf.jpg',
-    link: '#'
+    link: 'bookshelf',
+    index: 3
   },
   {
     title: 'Gintama Discussion',
     description: '',
     image: '/gintama.jpg',
-    link: '#'
+    link: 'gintama-discussion',
+    index: 4
   },
   {
     title: 'Shopy',
     description: '',
     image: '/shopy.jpg',
-    link: '#'
+    link: 'shopy',
+    index: 5
   }
 ]
 

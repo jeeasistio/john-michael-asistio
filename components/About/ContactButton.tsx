@@ -42,7 +42,7 @@ const ContactButton = () => {
   }
 
   return (
-    <Link href="/contact">
+    <Link href="/contact" scroll={false}>
       <a>
         <Box
           sx={sx.root}

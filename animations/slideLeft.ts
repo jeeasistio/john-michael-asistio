@@ -1,9 +1,9 @@
 import { Variants } from 'framer-motion'
 import { inTransition, outTransition } from '../utils/utils'
 
-export const slideRight: Variants = {
+export const slideLeft: Variants = {
   initial: {
-    x: '-105%',
+    x: '105%',
     transition: outTransition()
   },
   animate: {
@@ -11,7 +11,7 @@ export const slideRight: Variants = {
     transition: inTransition()
   },
   exit: {
-    x: '-105%',
+    x: '105%',
     transition: outTransition()
   }
 }

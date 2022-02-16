@@ -29,7 +29,11 @@ const sx: SxProps = {
 
 const IMAGES = [1, 2, 3, 4, 5, 6]
 
-const Images = () => {
+interface Props {
+  images: string[]
+}
+
+const Images = ({ images }: Props) => {
   return (
     <Container sx={sx.root}>
       {IMAGES.map((img, i) => (
