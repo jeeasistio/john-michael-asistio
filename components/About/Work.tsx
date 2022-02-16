@@ -65,7 +65,7 @@ const Work = ({ title, image }: Props) => {
 
   return (
     <Link
-      href={`/work/${title.toLowerCase().replaceAll(' ', '-')}`}
+      href={`/work/${title.toLowerCase().replace(/\s/g, '-')}`}
       scroll={false}
     >
       <a>
