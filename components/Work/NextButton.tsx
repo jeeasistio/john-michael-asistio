@@ -49,7 +49,7 @@ const NextButton = ({ next }: Props) => {
       onTapStart={slideIn}
       onTapCancel={slideOut}
     >
-      <Link href={`/work/${next.link}`}>
+      <Link href={`/work/${next.link}`} scroll={false}>
         <a>
           <Box
             sx={sx.overlay}

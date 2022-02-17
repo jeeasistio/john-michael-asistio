@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { slideUp } from '../../animations/slideUp'
 import { inTransition } from '../../utils/utils'
 import { Work } from '../../lib/works'
+import Link from 'next/link'
 
 const sx: SxProps = {
   root: {},
@@ -37,7 +38,7 @@ const sx: SxProps = {
 
 interface Props extends Work {}
 
-const Work = ({ title, image }: Props) => {
+const Work = ({ title, image, link }: Props) => {
   const hoverControls = useAnimation()
   const imageControls = useAnimation()
   const textControls = useAnimation()
@@ -62,51 +63,55 @@ const Work = ({ title, image }: Props) => {
   }
 
   return (
-    <Box
-      sx={sx.root}
-      component={motion.div}
-      onHoverStart={handleHover}
-      onHoverEnd={handleHoverLeave}
-      onTapStart={handleHover}
-      onTapCancel={handleHoverLeave}
-    >
-      <Box
-        sx={sx.imageCtn}
-        component={motion.div}
-        initial={{ x: '-0%', y: '-0%' }}
-        animate={imageControls}
-      >
+    <Link href={`/work/${link}`} scroll={false}>
+      <a>
         <Box
-          sx={sx.underlay}
+          sx={sx.root}
           component={motion.div}
-          initial={{ x: '0%', y: '0%' }}
-          animate={hoverControls}
+          onHoverStart={handleHover}
+          onHoverEnd={handleHoverLeave}
+          onTapStart={handleHover}
+          onTapCancel={handleHoverLeave}
         >
-          <Box sx={sx.textCtn}>
-            <Typography
-              align="center"
-              color="primary"
-              variant="h4"
-              component={motion.h4}
-              variants={slideUp}
-              initial="initial"
-              animate={textControls}
+          <Box
+            sx={sx.imageCtn}
+            component={motion.div}
+            initial={{ x: '-0%', y: '-0%' }}
+            animate={imageControls}
+          >
+            <Box
+              sx={sx.underlay}
+              component={motion.div}
+              initial={{ x: '0%', y: '0%' }}
+              animate={hoverControls}
             >
-              {title}
-            </Typography>
+              <Box sx={sx.textCtn}>
+                <Typography
+                  align="center"
+                  color="primary"
+                  variant="h4"
+                  component={motion.h4}
+                  variants={slideUp}
+                  initial="initial"
+                  animate={textControls}
+                >
+                  {title}
+                </Typography>
+              </Box>
+            </Box>
+
+            <Image
+              src={image}
+              alt="work"
+              layout="fill"
+              objectFit="cover"
+              priority
+              quality={100}
+            />
           </Box>
         </Box>
-
-        <Image
-          src={image}
-          alt="work"
-          layout="fill"
-          objectFit="cover"
-          priority
-          quality={100}
-        />
-      </Box>
-    </Box>
+      </a>
+    </Link>
   )
 }
 

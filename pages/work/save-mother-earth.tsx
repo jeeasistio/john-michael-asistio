@@ -1,6 +1,6 @@
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { NextPage } from 'next'
 import Head from 'next/head'
 import Layout from '../../components/UtilityComponents/Layout'
 import CoverImage from '../../components/Work/CoverImage'
@@ -27,11 +27,17 @@ interface Props extends Work {
   next: Work
 }
 
-const Work: NextPage<Props> = ({ title, image, description, next }) => {
+const INDEX = 0
+const WORK = works[INDEX]
+const NEXTWORK = works[INDEX + 1]
+
+const SaveMotherEarth: NextPage<Props> = () => {
+  const { title, description, image } = WORK
+
   return (
     <div>
       <Head>
-        <title>Work</title>
+        <title>Save Mother Earth</title>
       </Head>
 
       <Layout>
@@ -44,27 +50,11 @@ const Work: NextPage<Props> = ({ title, image, description, next }) => {
             <Description title={title} description={description} />
           </Box>
           <Images images={[]} />
-          <BottomNav next={next} />
+          <BottomNav next={NEXTWORK} />
         </Box>
       </Layout>
     </div>
   )
 }
 
-export default Work
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const work = works.find((work) => work.link === params?.title) as Work
-  const next = works[work.index % 5]
-
-  return {
-    props: { ...work, next }
-  }
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: works.map((work) => ({ params: { title: work.link } })),
-    fallback: false
-  }
-}
+export default SaveMotherEarth

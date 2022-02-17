@@ -9,7 +9,6 @@ const sx: SxProps = {
     position: 'relative',
     width: '100%',
     height: '100%',
-    filter: 'grayscale(100%)',
     isolation: 'isolate',
     overflow: 'hidden'
   },

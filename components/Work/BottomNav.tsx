@@ -6,7 +6,6 @@ import NextButton from './NextButton'
 
 const sx: SxProps = {
   root: {
-    marginTop: 12,
     marginBottom: 6,
     display: 'flex',
     justifyContent: 'space-between',

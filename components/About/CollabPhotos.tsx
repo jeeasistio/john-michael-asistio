@@ -39,7 +39,7 @@ const CollabPhotos = () => {
         >
           <Box sx={sx.collab1InnerCtn}>
             <Image
-              src="/collab_2.jpg"
+              src="/collab_1.jpg"
               alt="collab"
               layout="fill"
               objectFit="cover"

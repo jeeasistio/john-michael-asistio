@@ -2,9 +2,11 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import { SxProps } from '@mui/system'
 import Image from 'next/image'
+import ParallaxCtn from '../UtilityComponents/ParallaxCtn'
 
 const sx: SxProps = {
   root: {
+    mt: 22,
     display: 'flex',
     flexDirection: 'column',
     gap: 2
@@ -35,22 +37,24 @@ interface Props {
 
 const Images = ({ images }: Props) => {
   return (
-    <Container sx={sx.root}>
-      {IMAGES.map((img, i) => (
-        <Box key={img} sx={i % 2 ? sx.imageCtnOdd : sx.imageCtnEven}>
-          <Box sx={sx.image}>
-            <Image
-              src="/shopy.jpg"
-              alt="nav-profile"
-              layout="fill"
-              objectFit="cover"
-              priority
-              quality={100}
-            />
+    <ParallaxCtn>
+      <Container sx={sx.root}>
+        {IMAGES.map((img, i) => (
+          <Box key={img} sx={i % 2 ? sx.imageCtnOdd : sx.imageCtnEven}>
+            <Box sx={sx.image}>
+              <Image
+                src="/shopy.jpg"
+                alt="nav-profile"
+                layout="fill"
+                objectFit="cover"
+                priority
+                quality={100}
+              />
+            </Box>
           </Box>
-        </Box>
-      ))}
-    </Container>
+        ))}
+      </Container>
+    </ParallaxCtn>
   )
 }
 
