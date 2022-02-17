@@ -7,7 +7,7 @@ import FrontEndPhotos from './FrontEndPhotos'
 
 const sx: SxProps = {
   root: {
-    minHeight: '50vh',
+    minHeight: { xs: '40vh', md: '60vh' },
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around'
@@ -23,7 +23,7 @@ const Dos = () => {
       variants={staggerCtn}
       initial="initial"
       whileInView="animate"
-      viewport={{ margin: '-50%', once: true }}
+      viewport={{ margin: '-25%', once: true }}
     >
       <WhatIDo />
       <FrontEndPhotos />

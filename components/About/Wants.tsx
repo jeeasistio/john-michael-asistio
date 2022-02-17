@@ -1,5 +1,4 @@
 import { SxProps } from '@mui/system'
-import Box from '@mui/material/Box'
 import { staggerCtn } from '../../animations/slideUp'
 import { motion } from 'framer-motion'
 import Container from '@mui/material/Container'
@@ -8,7 +7,7 @@ import CollabPhotos from './CollabPhotos'
 
 const sx: SxProps = {
   root: {
-    minHeight: '50vh',
+    minHeight: { xs: '40vh', md: '60vh' },
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center'
@@ -24,7 +23,7 @@ const Wants = () => {
       variants={staggerCtn}
       initial="initial"
       whileInView="animate"
-      viewport={{ margin: '-50%', once: true }}
+      viewport={{ margin: '-25%', once: true }}
     >
       <CollabPhotos />
       <WhatIWant />

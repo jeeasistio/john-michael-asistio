@@ -5,6 +5,8 @@ import TransitioningTypography from '../UtilityComponents/TransitioningTypograph
 import { slideUp } from '../../animations/slideUp'
 import { motion } from 'framer-motion'
 import SendButton from './SendButton'
+import { useState } from 'react'
+import axios from 'axios'
 
 const sx: SxProps = {
   root: {
@@ -34,13 +36,30 @@ const sx: SxProps = {
 }
 
 const Form = () => {
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [status, setStatus] = useState('')
+
+  const handleEmail = (e) => setEmail(e.target.value)
+  const handleMessage = (e) => setMessage(e.target.value)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const res = await axios.post('/api/send-mail', { email, message })
+
+    setStatus(res.data.message)
+  }
+
   return (
-    <Box sx={sx.root}>
+    <Box sx={sx.root} component="form" onSubmit={handleSubmit}>
       <Box sx={sx.fieldCtn}>
         <TransitioningTypography text="Email" variant="subtitle2" />
         <TextField
           sx={sx.inputStyle}
           size="small"
+          value={email}
+          onChange={handleEmail}
           component={motion.div}
           variants={slideUp}
           fullWidth
@@ -52,6 +71,8 @@ const Form = () => {
         <TextField
           sx={sx.inputStyle}
           size="small"
+          value={message}
+          onChange={handleMessage}
           component={motion.div}
           variants={slideUp}
           fullWidth

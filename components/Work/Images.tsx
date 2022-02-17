@@ -6,7 +6,7 @@ import ParallaxCtn from '../UtilityComponents/ParallaxCtn'
 
 const sx: SxProps = {
   root: {
-    mt: 22,
+    mt: 15,
     display: 'flex',
     flexDirection: 'column',
     gap: 2

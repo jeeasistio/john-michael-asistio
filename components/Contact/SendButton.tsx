@@ -41,31 +41,27 @@ const SendButton = () => {
   }
 
   return (
-    <Link href="/contact">
-      <a>
-        <Box sx={sx.root}>
-          <Box
-            sx={sx.iconCtn}
-            component={motion.div}
-            onHoverStart={slideIn}
-            onHoverEnd={slideOut}
-            onTapStart={slideIn}
-            onTapCancel={slideOut}
-            variants={slideUp}
-          >
-            <Box
-              sx={sx.overlay}
-              component={motion.div}
-              variants={slideRight}
-              initial="initial"
-              animate={hoverControls}
-            />
+    <Box sx={sx.root} component="button" type="submit">
+      <Box
+        sx={sx.iconCtn}
+        component={motion.div}
+        onHoverStart={slideIn}
+        onHoverEnd={slideOut}
+        onTapStart={slideIn}
+        onTapCancel={slideOut}
+        variants={slideUp}
+      >
+        <Box
+          sx={sx.overlay}
+          component={motion.div}
+          variants={slideRight}
+          initial="initial"
+          animate={hoverControls}
+        />
 
-            <BlendingTypography variant="button">Send Mail</BlendingTypography>
-          </Box>
-        </Box>
-      </a>
-    </Link>
+        <BlendingTypography variant="button">Send Mail</BlendingTypography>
+      </Box>
+    </Box>
   )
 }
 
