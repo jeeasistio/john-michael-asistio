@@ -1,12 +1,12 @@
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
-import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 import { slideUp } from '../../animations/slideUp'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import SendButton from './SendButton'
 import { useState } from 'react'
 import axios from 'axios'
+import BlendingTypography from '../StyledComponents/BlendingTypography'
 
 const sx: SxProps = {
   root: {
@@ -32,6 +32,9 @@ const sx: SxProps = {
         borderColor: 'secondary.main'
       }
     }
+  },
+  labelCtn: {
+    overflow: 'hidden'
   }
 }
 
@@ -43,43 +46,131 @@ const Form = () => {
   const handleEmail = (e) => setEmail(e.target.value)
   const handleMessage = (e) => setMessage(e.target.value)
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleSubmit = async () => {
+    setStatus('loading')
 
-    const res = await axios.post('/api/send-mail', { email, message })
-
-    setStatus(res.data.message)
+    try {
+      await axios.post('/api/send-mail', { email, message })
+      setStatus('success')
+    } catch (err) {
+      setStatus('error')
+    }
   }
 
   return (
-    <Box sx={sx.root} component="form" onSubmit={handleSubmit}>
-      <Box sx={sx.fieldCtn}>
-        <TransitioningTypography text="Email" variant="subtitle2" />
-        <TextField
-          sx={sx.inputStyle}
-          size="small"
-          value={email}
-          onChange={handleEmail}
-          component={motion.div}
-          variants={slideUp}
-          fullWidth
-        />
-      </Box>
+    <Box sx={sx.root}>
+      <AnimatePresence exitBeforeEnter>
+        <Box sx={{ overflow: 'hidden' }}>
+          {status === 'loading' && (
+            <Box
+              component={motion.div}
+              variants={slideUp}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <BlendingTypography variant="h5">
+                Mail Sending...
+              </BlendingTypography>
+            </Box>
+          )}
+          {status === 'success' && (
+            <Box
+              component={motion.div}
+              variants={slideUp}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <BlendingTypography variant="h5">
+                I&apos;ve got your mail!
+              </BlendingTypography>
+            </Box>
+          )}
+          {status === 'error' && (
+            <Box
+              component={motion.div}
+              variants={slideUp}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <BlendingTypography variant="h5">
+                Mail not sent. Please try again later.
+              </BlendingTypography>
+            </Box>
+          )}
+        </Box>
+      </AnimatePresence>
 
-      <Box sx={sx.fieldCtn}>
-        <TransitioningTypography text="Message" variant="subtitle2" />
-        <TextField
-          sx={sx.inputStyle}
-          size="small"
-          value={message}
-          onChange={handleMessage}
-          component={motion.div}
-          variants={slideUp}
-          fullWidth
-        />
-      </Box>
+      <AnimatePresence exitBeforeEnter>
+        {status === '' && (
+          <>
+            <Box sx={sx.fieldCtn}>
+              <Box sx={sx.labelCtn}>
+                <Box
+                  component={motion.div}
+                  variants={slideUp}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                >
+                  <BlendingTypography variant="subtitle2">
+                    Email
+                  </BlendingTypography>
+                </Box>
+              </Box>
 
-      <SendButton />
+              <TextField
+                sx={sx.inputStyle}
+                size="small"
+                value={email}
+                onChange={handleEmail}
+                component={motion.div}
+                variants={slideUp}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                fullWidth
+              />
+            </Box>
+
+            <Box sx={sx.fieldCtn}>
+              <Box sx={sx.labelCtn}>
+                <Box
+                  component={motion.div}
+                  variants={slideUp}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                >
+                  <BlendingTypography variant="subtitle2">
+                    Message
+                  </BlendingTypography>
+                </Box>
+              </Box>
+
+              <TextField
+                sx={sx.inputStyle}
+                size="small"
+                multiline
+                value={message}
+                onChange={handleMessage}
+                component={motion.div}
+                variants={slideUp}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                fullWidth
+              />
+            </Box>
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence exitBeforeEnter>
+        {status === '' && <SendButton handleClick={handleSubmit} />}
+      </AnimatePresence>
     </Box>
   )
 }

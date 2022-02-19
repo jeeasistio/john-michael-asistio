@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { SxProps } from '@mui/system'
 import SocialLink from './SocialLink'
+import { motion } from 'framer-motion'
 
 const sx: SxProps = {
   root: {
@@ -25,7 +26,7 @@ const SOCMEDIAS = [
 
 const SocialLinks = () => {
   return (
-    <Box sx={sx.root}>
+    <Box sx={sx.root} component={motion.div} layout>
       {SOCMEDIAS.map((media, i) => (
         <SocialLink key={i} icon={media.icon} link={media.link} />
       ))}

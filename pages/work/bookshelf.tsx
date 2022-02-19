@@ -8,6 +8,8 @@ import Description from '../../components/Work/Description'
 import Images from '../../components/Work/Images'
 import BottomNav from '../../components/Work/BottomNav'
 import works, { Work } from '../../lib/works'
+import { motion } from 'framer-motion'
+import { staggerCtn } from '../../animations/slideUp'
 
 const sx: SxProps = {
   root: {
@@ -41,7 +43,14 @@ const Bookshelf: NextPage<Props> = () => {
       </Head>
 
       <Layout>
-        <Box sx={sx.root}>
+        <Box
+          sx={sx.root}
+          component={motion.div}
+          variants={staggerCtn}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           <Box sx={sx.coverCtn}>
             <CoverImage image={image} />
           </Box>

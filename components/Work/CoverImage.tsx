@@ -7,15 +7,27 @@ import {
   useViewportScroll
 } from 'framer-motion'
 import Image from 'next/image'
-import { parallaxTransition } from '../../utils/utils'
+import {
+  inTransition,
+  outTransition,
+  parallaxTransition
+} from '../../utils/utils'
 
 const sx: SxProps = {
   root: {
     width: '100%',
     height: '100%',
+    position: 'relative',
     overflow: 'hidden'
   },
-  imageCtn: {}
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'primary.main'
+  }
 }
 
 interface Props {
@@ -47,6 +59,19 @@ const CoverImage = ({ image }: Props) => {
           quality={100}
         />
       </motion.div>
+
+      <Box
+        sx={sx.overlay}
+        component={motion.div}
+        variants={{
+          initial: { y: '0%' },
+          animate: { y: '-105%', transition: inTransition() },
+          exit: { y: '0%', transition: outTransition() }
+        }}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+      />
     </Box>
   )
 }

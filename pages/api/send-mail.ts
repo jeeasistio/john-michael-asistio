@@ -10,6 +10,6 @@ export default async function handler(
 
     res.status(200).json(mailResponse)
   } catch (err) {
-    res.status(400).json({ err })
+    res.status(400).json(err)
   }
 }

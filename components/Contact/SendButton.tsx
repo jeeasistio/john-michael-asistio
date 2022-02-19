@@ -3,7 +3,6 @@ import { useAnimation, motion } from 'framer-motion'
 import { slideRight } from '../../animations/slideRight'
 import Box from '@mui/material/Box'
 import { slideUp } from '../../animations/slideUp'
-import Link from 'next/link'
 import BlendingTypography from '../StyledComponents/BlendingTypography'
 
 const sx: SxProps = {
@@ -30,7 +29,11 @@ const sx: SxProps = {
   }
 }
 
-const SendButton = () => {
+interface Props {
+  handleClick(): void
+}
+
+const SendButton = ({ handleClick }: Props) => {
   const hoverControls = useAnimation()
 
   const slideIn = () => {
@@ -41,7 +44,7 @@ const SendButton = () => {
   }
 
   return (
-    <Box sx={sx.root} component="button" type="submit">
+    <Box sx={sx.root} onClick={handleClick}>
       <Box
         sx={sx.iconCtn}
         component={motion.div}
@@ -50,6 +53,9 @@ const SendButton = () => {
         onTapStart={slideIn}
         onTapCancel={slideOut}
         variants={slideUp}
+        initial="initial"
+        animate="animate"
+        exit="exit"
       >
         <Box
           sx={sx.overlay}

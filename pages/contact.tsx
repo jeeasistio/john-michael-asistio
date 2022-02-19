@@ -9,7 +9,7 @@ import FeelFree from '../components/Contact/FeelFree'
 import Form from '../components/Contact/Form'
 import PhoneNumber from '../components/Contact/PhoneNumber'
 import SocialLinks from '../components/Contact/SocialLinks'
-import { motion } from 'framer-motion'
+import { LayoutGroup, motion } from 'framer-motion'
 import { staggerCtn } from '../animations/slideUp'
 
 const sx: SxProps = {
@@ -69,13 +69,17 @@ const Contact: NextPage = () => {
             variants={staggerCtn}
             initial="initial"
             whileInView="animate"
+            exit="exit"
           >
-            <FeelFree />
-            <Form />
-            <Box sx={sx.contactCtn}>
-              <PhoneNumber />
-              <SocialLinks />
-            </Box>
+            <LayoutGroup>
+              <FeelFree />
+              <Form />
+
+              <Box sx={sx.contactCtn}>
+                <PhoneNumber />
+                <SocialLinks />
+              </Box>
+            </LayoutGroup>
           </Box>
         </Box>
       </Layout>
