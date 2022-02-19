@@ -46,7 +46,9 @@ const Form = () => {
   const handleEmail = (e) => setEmail(e.target.value)
   const handleMessage = (e) => setMessage(e.target.value)
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    console.log(e)
     setStatus('loading')
 
     try {
@@ -58,7 +60,7 @@ const Form = () => {
   }
 
   return (
-    <Box sx={sx.root}>
+    <Box sx={sx.root} component="form" onSubmit={handleSubmit}>
       <AnimatePresence exitBeforeEnter>
         <Box sx={{ overflow: 'hidden' }}>
           {status === 'loading' && (
@@ -105,7 +107,7 @@ const Form = () => {
 
       <AnimatePresence exitBeforeEnter>
         {status === '' && (
-          <>
+          <Box>
             <Box sx={sx.fieldCtn}>
               <Box sx={sx.labelCtn}>
                 <Box
@@ -167,12 +169,12 @@ const Form = () => {
                 required
               />
             </Box>
-          </>
+          </Box>
         )}
       </AnimatePresence>
 
       <AnimatePresence exitBeforeEnter>
-        {status === '' && <SendButton handleClick={handleSubmit} />}
+        {status === '' && <SendButton />}
       </AnimatePresence>
     </Box>
   )

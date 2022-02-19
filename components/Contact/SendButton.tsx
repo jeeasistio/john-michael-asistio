@@ -9,10 +9,12 @@ const sx: SxProps = {
   root: {
     overflow: 'hidden',
     mixBlendMode: 'difference',
-    textAlign: 'center'
+    textAlign: 'center',
+    width: '100%'
   },
   iconCtn: {
     border: 1,
+    borderColor: 'secondary.main',
     py: '6px',
     px: 2,
     position: 'relative',
@@ -29,11 +31,7 @@ const sx: SxProps = {
   }
 }
 
-interface Props {
-  handleClick(): void
-}
-
-const SendButton = ({ handleClick }: Props) => {
+const SendButton = () => {
   const hoverControls = useAnimation()
 
   const slideIn = () => {
@@ -44,7 +42,7 @@ const SendButton = ({ handleClick }: Props) => {
   }
 
   return (
-    <Box sx={sx.root} onClick={handleClick}>
+    <Box sx={sx.root} component="button" type="submit">
       <Box
         sx={sx.iconCtn}
         component={motion.div}
@@ -65,7 +63,9 @@ const SendButton = ({ handleClick }: Props) => {
           animate={hoverControls}
         />
 
-        <BlendingTypography variant="button">Send Mail</BlendingTypography>
+        <BlendingTypography color="secondary" variant="button">
+          Send Mail
+        </BlendingTypography>
       </Box>
     </Box>
   )
