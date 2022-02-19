@@ -21,10 +21,10 @@ const sx: SxProps = {
   },
   overlay: {
     position: 'absolute',
-    top: 0,
+    top: -1,
     left: 0,
     width: '100%',
-    height: '100%',
+    height: '105%',
     backgroundColor: 'secondary.main'
   },
   imageCtn: {
@@ -32,7 +32,8 @@ const sx: SxProps = {
     width: 250,
     height: 300,
     margin: '-14%',
-    pointerEvents: 'none'
+    pointerEvents: 'none',
+    zIndex: 'appBar'
   },
   imageInnerCtn: {
     position: 'relative',
@@ -109,7 +110,9 @@ const Work = ({ title, image }: Props) => {
             </Box>
           </Box>
 
-          <TransitioningTypography text={title.toUpperCase()} variant="h1" />
+          <Box sx={{ zIndex: 3 }}>
+            <TransitioningTypography text={title.toUpperCase()} variant="h1" />
+          </Box>
         </Box>
       </a>
     </Link>

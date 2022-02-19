@@ -83,7 +83,7 @@ const Form = () => {
               exit="exit"
             >
               <BlendingTypography variant="h5">
-                I&apos;ve got your mail!
+                I&apos;ve got your mail
               </BlendingTypography>
             </Box>
           )}
@@ -125,6 +125,7 @@ const Form = () => {
                 sx={sx.inputStyle}
                 size="small"
                 value={email}
+                type="email"
                 onChange={handleEmail}
                 component={motion.div}
                 variants={slideUp}
@@ -132,6 +133,7 @@ const Form = () => {
                 animate="animate"
                 exit="exit"
                 fullWidth
+                required
               />
             </Box>
 
@@ -162,6 +164,7 @@ const Form = () => {
                 animate="animate"
                 exit="exit"
                 fullWidth
+                required
               />
             </Box>
           </>
