@@ -11,8 +11,7 @@ const sx: SxProps = {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    pt: 12,
-    isolation: 'isolate'
+    pt: 12
   }
 }
 

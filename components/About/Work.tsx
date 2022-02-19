@@ -5,16 +5,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
 import { slideRight } from '../../animations/slideRight'
-import { Work } from '../../lib/works'
+import { staggerCtn } from '../../animations/slideUp'
+import works, { Work } from '../../lib/works'
 import getRelativeCoordinates from '../../utils/getRelativeCoordinates'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
 const sx: SxProps = {
   root: {
-    ':nth-of-type(1)': {
-      borderTop: 2
-    },
-    borderBottom: 2,
     p: 3,
     position: 'relative',
     cursor: 'pointer'
@@ -27,13 +24,29 @@ const sx: SxProps = {
     height: '105%',
     backgroundColor: 'secondary.main'
   },
+  overline: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: 4,
+    backgroundColor: 'secondary.main',
+    zIndex: -1
+  },
+  underline: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    height: 3,
+    backgroundColor: 'secondary.main'
+  },
   imageCtn: {
     position: 'absolute',
     width: 250,
     height: 300,
     margin: '-14%',
-    pointerEvents: 'none',
-    zIndex: 'appBar'
+    pointerEvents: 'none'
   },
   imageInnerCtn: {
     position: 'relative',
@@ -44,7 +57,7 @@ const sx: SxProps = {
 
 interface Props extends Work {}
 
-const Work = ({ title, image }: Props) => {
+const Work = ({ title, image, index }: Props) => {
   const [mousePosition, setMousePosition] = useState({})
   const [showing, show] = useCycle(0, 1)
   const ref = useRef(null)
@@ -80,6 +93,10 @@ const Work = ({ title, image }: Props) => {
           onTapCancel={slideOut}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          variants={staggerCtn}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
         >
           <Box
             sx={sx.overlay}
@@ -88,6 +105,15 @@ const Work = ({ title, image }: Props) => {
             initial="initial"
             animate={hoverControls}
           />
+
+          {index === works.length && (
+            <Box
+              sx={sx.underline}
+              component={motion.div}
+              variants={slideRight}
+            />
+          )}
+          <Box component={motion.div} sx={sx.overline} variants={slideRight} />
 
           <Box
             sx={sx.imageCtn}
@@ -110,9 +136,7 @@ const Work = ({ title, image }: Props) => {
             </Box>
           </Box>
 
-          <Box sx={{ zIndex: 3 }}>
-            <TransitioningTypography text={title.toUpperCase()} variant="h1" />
-          </Box>
+          <TransitioningTypography text={title.toUpperCase()} variant="h1" />
         </Box>
       </a>
     </Link>
