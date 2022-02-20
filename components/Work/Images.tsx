@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
 import { SxProps } from '@mui/system'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -8,24 +7,25 @@ import ParallaxCtn from '../UtilityComponents/ParallaxCtn'
 
 const sx: SxProps = {
   root: {
-    mt: 15,
+    mt: 20,
     display: 'flex',
     flexDirection: 'column',
-    gap: 2
+    gap: 2,
+    p: '5%'
   },
   imageCtnOdd: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    transform: { md: 'translateY(-25%)' }
+    justifyContent: { xs: 'center', sm: 'flex-end' }
   },
   imageCtnEven: {
     display: 'flex',
+    justifyContent: { xs: 'center', sm: 'flex-start' },
     alignItems: 'center'
   },
   image: {
-    width: 426,
-    height: 240,
+    width: { xs: 352, sm: 640, md: 854 },
+    height: { xs: 198, sm: 360, md: 480 },
     position: 'relative',
     overflow: 'hidden',
     backgroundColor: 'secondary.main'
@@ -40,21 +40,19 @@ const sx: SxProps = {
   }
 }
 
-const IMAGES = [1, 2, 3, 4, 5, 6]
-
 interface Props {
   images: string[]
 }
 
 const Images = ({ images }: Props) => {
   return (
-    <ParallaxCtn>
-      <Container sx={sx.root}>
-        {IMAGES.map((img, i) => (
-          <Box key={img} sx={i % 2 ? sx.imageCtnOdd : sx.imageCtnEven}>
+    <Box sx={sx.root}>
+      {images.map((img, i) => (
+        <Box key={img} sx={i % 2 ? sx.imageCtnOdd : sx.imageCtnEven}>
+          <ParallaxCtn>
             <Box sx={sx.image}>
               <Image
-                src="/shopy.jpg"
+                src={img}
                 alt="nav-profile"
                 layout="fill"
                 objectFit="cover"
@@ -75,10 +73,10 @@ const Images = ({ images }: Props) => {
                 viewport={{ once: true }}
               />
             </Box>
-          </Box>
-        ))}
-      </Container>
-    </ParallaxCtn>
+          </ParallaxCtn>
+        </Box>
+      ))}
+    </Box>
   )
 }
 

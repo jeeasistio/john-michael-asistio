@@ -2,6 +2,7 @@ export interface Work {
   title: string
   description: string[]
   image: string
+  images: string[]
   link: string
   index: number
 }
@@ -16,7 +17,15 @@ const works: Work[] = [
       'kindness can make a big difference.',
       "Let's save Mother Earth."
     ],
-    image: '/save_mother_earth.jpg',
+    image: '/save-mother-earth/save_mother_earth.jpg',
+    images: [
+      '/save-mother-earth/hero_page.png',
+      '/save-mother-earth/nav.png',
+      '/save-mother-earth/article.png',
+      '/save-mother-earth/causes.png',
+      '/save-mother-earth/solutions.png',
+      '/save-mother-earth/solution.png'
+    ],
     link: 'save-mother-earth',
     index: 1
   },
@@ -28,7 +37,15 @@ const works: Work[] = [
       'of Nescoffee in the morning. Have a',
       'break and take everything slowly.'
     ],
-    image: '/nescoffee.jpg',
+    image: '/nescoffee/nescoffee.jpg',
+    images: [
+      '/nescoffee/hero_page.png',
+      '/nescoffee/zoom_out.png',
+      '/nescoffee/review.png',
+      '/nescoffee/products.png',
+      '/nescoffee/outro.png',
+      '/nescoffee/contacts.png'
+    ],
     link: 'nescoffee',
     index: 2
   },
@@ -40,7 +57,15 @@ const works: Work[] = [
       "on track on who's requesting and",
       'currently borrowing the book.'
     ],
-    image: '/bookshelf.jpg',
+    image: '/bookshelf/bookshelf.jpg',
+    images: [
+      '/bookshelf/hero_page.png',
+      '/bookshelf/zoom_out.png',
+      '/bookshelf/login.png',
+      '/bookshelf/book.png',
+      '/bookshelf/add_book.png',
+      '/bookshelf/requests.png'
+    ],
     link: 'bookshelf',
     index: 3
   },
@@ -53,7 +78,15 @@ const works: Work[] = [
       'Gintama? Discuss anything here about',
       'Gintama.'
     ],
-    image: '/gintama.jpg',
+    image: '/gintama/gintama.jpg',
+    images: [
+      '/gintama/hero_page.png',
+      '/gintama/zoom_out.png',
+      '/gintama/global_thread.png',
+      '/gintama/post.png',
+      '/gintama/episode.png',
+      '/gintama/user.png'
+    ],
     link: 'gintama-discussion',
     index: 4
   },
@@ -65,7 +98,15 @@ const works: Work[] = [
       'Everything in one place. Variety of',
       'categories. Shop without hassle'
     ],
-    image: '/shopy.jpg',
+    image: '/shopy/shopy.jpg',
+    images: [
+      '/shopy/hero_page.png',
+      '/shopy/zoom_out.png',
+      '/shopy/shop.png',
+      '/shopy/cart.png',
+      '/shopy/history.png',
+      '/shopy/contacts.png'
+    ],
     link: 'shopy',
     index: 5
   }

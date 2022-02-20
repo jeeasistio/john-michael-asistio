@@ -7,7 +7,6 @@ import NextButton from './NextButton'
 const sx: SxProps = {
   root: {
     marginBottom: 6,
-    marginTop: 10,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',

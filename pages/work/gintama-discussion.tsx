@@ -34,7 +34,7 @@ const WORK = works[INDEX]
 const NEXTWORK = works[INDEX + 1]
 
 const GintamaDiscussion: NextPage<Props> = () => {
-  const { title, description, image } = WORK
+  const { title, description, image, images } = WORK
 
   return (
     <div>
@@ -58,7 +58,7 @@ const GintamaDiscussion: NextPage<Props> = () => {
           <Box sx={sx.descCtn}>
             <Description title={title} description={description} />
           </Box>
-          <Images images={[]} />
+          <Images images={images} />
           <BottomNav next={NEXTWORK} />
         </Box>
       </Layout>

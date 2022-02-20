@@ -11,7 +11,7 @@ const sx: SxProps = {
     alignItems: 'center',
     overflow: 'hidden',
     p: 6,
-    transform: 'translateY(100px)'
+    transform: 'translateY(150px)'
   },
   exploreCtn: {
     backgroundColor: 'secondary.main',

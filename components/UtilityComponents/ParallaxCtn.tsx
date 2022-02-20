@@ -26,7 +26,11 @@ const ParallaxCtn = ({ children, boxStyle }: Props) => {
     setVh(window.innerHeight)
   }, [ref, scrollY])
 
-  const yValue = useTransform(scrollY, [elemTop - vh, elemTop + vh], [-100, 0])
+  const yValue = useTransform(
+    scrollY,
+    [elemTop - vh, elemTop + vh],
+    [-100, -200]
+  )
   const y = useSpring(yValue, parallaxTransition())
 
   return (

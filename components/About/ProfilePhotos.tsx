@@ -12,7 +12,7 @@ const sx: SxProps = {
     minHeight: '50vh',
     overflow: 'hidden',
     p: 6,
-    transform: 'translateY(100px)'
+    transform: 'translateY(150px)'
   },
   profile1Ctn: {
     backgroundColor: 'secondary.main',

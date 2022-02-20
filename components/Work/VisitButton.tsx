@@ -28,6 +28,9 @@ const sx: SxProps = {
     width: '100%',
     height: '100%',
     backgroundColor: 'secondary.main'
+  },
+  textStyle: {
+    letterSpacing: 1.2
   }
 }
 
@@ -68,7 +71,9 @@ const VisitButton = () => {
               animate={hoverControls}
             />
 
-            <BlendingTypography variant="button">Visit</BlendingTypography>
+            <BlendingTypography sx={sx.textStyle} variant="button">
+              Visit
+            </BlendingTypography>
           </Box>
         </Box>
       </a>

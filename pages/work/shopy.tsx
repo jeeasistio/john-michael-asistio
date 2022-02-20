@@ -34,7 +34,7 @@ const WORK = works[INDEX]
 const NEXTWORK = works[0]
 
 const Shopy: NextPage<Props> = () => {
-  const { title, description, image } = WORK
+  const { title, description, image, images } = WORK
 
   return (
     <div>
@@ -58,7 +58,7 @@ const Shopy: NextPage<Props> = () => {
           <Box sx={sx.descCtn}>
             <Description title={title} description={description} />
           </Box>
-          <Images images={[]} />
+          <Images images={images} />
           <BottomNav next={NEXTWORK} />
         </Box>
       </Layout>
