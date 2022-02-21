@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 const sx: SxProps = {
   linkCtn: {
     py: 2,
-    pl: 6,
+    pl: { xs: 2, md: 6 },
     pr: 20,
     position: 'relative',
     overflow: 'hidden'

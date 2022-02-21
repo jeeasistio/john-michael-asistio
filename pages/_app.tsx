@@ -5,10 +5,14 @@ import theme from '../styles/themes'
 import { CssBaseline } from '@mui/material'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useRef } from 'react'
+import CustomCursor from '../components/UtilityComponents/CustomCursor'
 config.autoAddCss = false
 
 function MyApp({ Component, pageProps, router }: AppProps) {
+  const ref = useRef(null)
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline>
@@ -16,7 +20,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           exitBeforeEnter
           onExitComplete={() => window.scrollTo(0, 0)}
         >
-          <Component {...pageProps} key={router.route} />
+          <motion.div ref={ref}>
+            <CustomCursor componentRef={ref.current} />
+            <Component {...pageProps} key={router.route} ref={ref} />
+          </motion.div>
         </AnimatePresence>
       </CssBaseline>
     </ThemeProvider>

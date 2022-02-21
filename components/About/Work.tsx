@@ -1,13 +1,13 @@
 import { SxProps } from '@mui/material'
 import Box from '@mui/material/Box'
+import useMouse from '@react-hook/mouse-position'
 import { motion, useAnimation, useCycle } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { slideRight } from '../../animations/slideRight'
 import { staggerCtn } from '../../animations/slideUp'
 import works, { Work } from '../../lib/works'
-import getRelativeCoordinates from '../../utils/getRelativeCoordinates'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
 const sx: SxProps = {
@@ -58,9 +58,9 @@ const sx: SxProps = {
 interface Props extends Work {}
 
 const Work = ({ title, image, index }: Props) => {
-  const [mousePosition, setMousePosition] = useState({})
   const [showing, show] = useCycle(0, 1)
   const ref = useRef(null)
+  const mouse = useMouse(ref, {})
   const hoverControls = useAnimation()
 
   const slideIn = () => {
@@ -70,7 +70,6 @@ const Work = ({ title, image, index }: Props) => {
     hoverControls.start('initial')
   }
   const handleMouseMove = (e) => {
-    setMousePosition(getRelativeCoordinates(e, ref.current))
     show(1)
   }
   const handleMouseLeave = () => {
@@ -119,8 +118,8 @@ const Work = ({ title, image, index }: Props) => {
             sx={sx.imageCtn}
             component={motion.div}
             animate={{
-              x: mousePosition.x,
-              y: mousePosition.y,
+              x: mouse.x,
+              y: mouse.y,
               opacity: showing
             }}
           >
