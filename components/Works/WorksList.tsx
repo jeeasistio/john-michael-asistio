@@ -19,11 +19,13 @@ const sx: SxProps = {
     top: '5%',
     left: '5%'
   },
-  workCtn: {
-    width: { xs: '100vw', lg: '50vw' },
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+  worksCtn: {
+    width: '100vw',
+    height: '100vh',
+    position: 'sticky',
+    top: 0,
+    overflowY: 'scroll',
+    overflowX: 'hidden'
   }
 }
 
@@ -49,23 +51,21 @@ const WorksList = () => {
         </BlendingTypography>
       </Box>
 
-      <motion.div
-        ref={scrollRef}
-        style={{
-          display: 'flex',
-          height: '100vh',
-          position: 'sticky',
-          top: 0,
-          paddingTop: '96px',
-          x
-        }}
-      >
-        {works.map((work) => (
-          <Box sx={sx.workCtn} key={work.title} component={motion.div}>
-            <Work {...work} />
-          </Box>
-        ))}
-      </motion.div>
+      <Box sx={sx.worksCtn}>
+        <motion.div
+          ref={scrollRef}
+          style={{
+            display: 'flex',
+            height: '100%',
+            paddingTop: '96px',
+            x
+          }}
+        >
+          {works.map((work) => (
+            <Work {...work} key={work.title} />
+          ))}
+        </motion.div>
+      </Box>
 
       <div style={{ height: scrollRange }} />
     </>

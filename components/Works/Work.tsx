@@ -9,10 +9,17 @@ import { Work } from '../../lib/works'
 import Link from 'next/link'
 
 const sx: SxProps = {
-  root: {},
+  root: {
+    width: { xs: '100vw', lg: '50vw' },
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    p: 4
+  },
   imageCtn: {
-    height: '550px',
-    width: '550px',
+    height: { xs: 300, lg: 550 },
+    width: { xs: 300, lg: 550 },
+    p: 4,
     position: 'relative',
     cursor: 'pointer'
   },
@@ -32,7 +39,7 @@ const sx: SxProps = {
     backgroundColor: 'secondary.main',
     display: 'flex',
     alignItems: 'flex-end',
-    p: 2
+    p: { xs: 0.5, lg: 2 }
   }
 }
 
@@ -63,19 +70,16 @@ const Work = ({ title, image, link }: Props) => {
   }
 
   return (
-    <Link href={`/work/${link}`} scroll={false}>
-      <a>
-        <Box
-          sx={sx.root}
-          component={motion.div}
-          onHoverStart={handleHover}
-          onHoverEnd={handleHoverLeave}
-          onTapStart={handleHover}
-          onTapCancel={handleHoverLeave}
-        >
+    <Box sx={sx.root} component={motion.div}>
+      <Link href={`/work/${link}`} scroll={false}>
+        <a>
           <Box
             sx={sx.imageCtn}
             component={motion.div}
+            onHoverStart={handleHover}
+            onHoverEnd={handleHoverLeave}
+            onTapStart={handleHover}
+            onTapCancel={handleHoverLeave}
             initial={{ x: '-0%', y: '-0%' }}
             animate={imageControls}
           >
@@ -109,9 +113,9 @@ const Work = ({ title, image, link }: Props) => {
               quality={100}
             />
           </Box>
-        </Box>
-      </a>
-    </Link>
+        </a>
+      </Link>
+    </Box>
   )
 }
 

@@ -7,10 +7,10 @@ import FrontEndPhotos from './FrontEndPhotos'
 
 const sx: SxProps = {
   root: {
-    minHeight: { xs: '40vh', md: '60vh' },
+    my: 12,
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-around'
+    justifyContent: { xs: 'center', md: 'space-around' },
+    alignItems: 'center'
   }
 }
 

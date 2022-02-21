@@ -7,9 +7,9 @@ import ExplorePhotos from './ExplorePhotos'
 
 const sx: SxProps = {
   root: {
-    minHeight: { xs: '40vh', md: '60vh' },
+    my: 12,
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: { xs: 'center', md: 'space-around' },
     alignItems: 'center'
   }
 }
