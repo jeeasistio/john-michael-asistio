@@ -3,6 +3,7 @@ import { SxProps } from '@mui/system'
 import { motion, useAnimation } from 'framer-motion'
 import Link from 'next/link'
 import { slideRight } from '../../animations/slideRight'
+import useCursor from '../../utils/useCursor'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
 const sx: SxProps = {
@@ -26,6 +27,7 @@ const sx: SxProps = {
 
 const BackButton = () => {
   const hoverControls = useAnimation()
+  const { handleHover, handleLeave, handleTap } = useCursor()
 
   const slideIn = () => {
     hoverControls.start('animate')
@@ -42,8 +44,11 @@ const BackButton = () => {
       onHoverEnd={slideOut}
       onTapStart={slideIn}
       onTapCancel={slideOut}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleLeave}
+      whileTap={handleTap}
     >
-      <Link href="/works" scroll={false}>
+      <Link href="/works">
         <a>
           <Box
             sx={sx.overlay}

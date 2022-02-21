@@ -2,6 +2,7 @@ import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import { motion } from 'framer-motion'
 import { closeMenu1, closeMenu2 } from '../../animations/navButton'
+import useCursor from '../../utils/useCursor'
 
 const sx: SxProps = {
   root: {
@@ -25,8 +26,17 @@ interface Props {
 }
 
 const CloseMenuButton = ({ handleClick }: Props) => {
+  const { handleHover, handleLeave, handleTap } = useCursor()
+
   return (
-    <Box sx={sx.root} component={motion.button} onClick={handleClick}>
+    <Box
+      sx={sx.root}
+      component={motion.button}
+      onClick={handleClick}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleLeave}
+      whileTap={handleTap}
+    >
       <Box
         sx={sx.line}
         component={motion.div}

@@ -8,6 +8,7 @@ import { useRef } from 'react'
 import { slideRight } from '../../animations/slideRight'
 import { staggerCtn } from '../../animations/slideUp'
 import works, { Work } from '../../lib/works'
+import useCursor from '../../utils/useCursor'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
 const sx: SxProps = {
@@ -58,10 +59,11 @@ const sx: SxProps = {
 interface Props extends Work {}
 
 const Work = ({ title, image, index }: Props) => {
-  const [showing, show] = useCycle(0, 1)
   const ref = useRef(null)
-  const mouse = useMouse(ref, {})
+  const { handleHover, handleLeave, handleTap } = useCursor()
+  const [showing, show] = useCycle(0, 1)
   const hoverControls = useAnimation()
+  const mouse = useMouse(ref, {})
 
   const slideIn = () => {
     hoverControls.start('animate')
@@ -71,16 +73,15 @@ const Work = ({ title, image, index }: Props) => {
   }
   const handleMouseMove = (e) => {
     show(1)
+    handleHover()
   }
   const handleMouseLeave = () => {
+    handleLeave()
     show(0)
   }
 
   return (
-    <Link
-      href={`/work/${title.toLowerCase().replace(/\s/g, '-')}`}
-      scroll={false}
-    >
+    <Link href={`/work/${title.toLowerCase().replace(/\s/g, '-')}`}>
       <a>
         <Box
           ref={ref}
@@ -92,6 +93,7 @@ const Work = ({ title, image, index }: Props) => {
           onTapCancel={slideOut}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          whileTap={handleTap}
           variants={staggerCtn}
           initial="initial"
           whileInView="animate"

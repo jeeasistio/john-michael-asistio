@@ -5,6 +5,7 @@ import Box from '@mui/material/Box'
 import { slideUp } from '../../animations/slideUp'
 import Link from 'next/link'
 import BlendingTypography from '../StyledComponents/BlendingTypography'
+import useCursor from '../../utils/useCursor'
 
 const sx: SxProps = {
   root: {
@@ -33,6 +34,7 @@ const sx: SxProps = {
 
 const ContactButton = () => {
   const hoverControls = useAnimation()
+  const { handleHover, handleLeave, handleTap } = useCursor()
 
   const slideIn = () => {
     hoverControls.start('animate')
@@ -42,7 +44,7 @@ const ContactButton = () => {
   }
 
   return (
-    <Link href="/contact" scroll={false}>
+    <Link href="/contact">
       <a>
         <Box
           sx={sx.root}
@@ -50,6 +52,9 @@ const ContactButton = () => {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
+          onMouseEnter={handleHover}
+          onMouseLeave={handleLeave}
+          whileTap={handleTap}
         >
           <Box
             sx={sx.iconCtn}

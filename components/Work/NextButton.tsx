@@ -4,6 +4,7 @@ import { motion, useAnimation } from 'framer-motion'
 import Link from 'next/link'
 import { slideLeft } from '../../animations/slideLeft'
 import { Work } from '../../lib/works'
+import useCursor from '../../utils/useCursor'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
 const sx: SxProps = {
@@ -32,6 +33,7 @@ interface Props {
 
 const NextButton = ({ next }: Props) => {
   const hoverControls = useAnimation()
+  const { handleHover, handleLeave, handleTap } = useCursor()
 
   const slideIn = () => {
     hoverControls.start('animate')
@@ -48,8 +50,11 @@ const NextButton = ({ next }: Props) => {
       onHoverEnd={slideOut}
       onTapStart={slideIn}
       onTapCancel={slideOut}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleLeave}
+      whileTap={handleTap}
     >
-      <Link href={`/work/${next.link}`} scroll={false}>
+      <Link href={`/work/${next.link}`}>
         <a>
           <Box
             sx={sx.overlay}

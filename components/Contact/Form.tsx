@@ -7,6 +7,7 @@ import SendButton from './SendButton'
 import { useState } from 'react'
 import axios from 'axios'
 import BlendingTypography from '../StyledComponents/BlendingTypography'
+import useCursor from '../../utils/useCursor'
 
 const sx: SxProps = {
   root: {
@@ -39,6 +40,8 @@ const sx: SxProps = {
 }
 
 const Form = () => {
+  const { handleHover, handleLeave, handleTap } = useCursor()
+
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [status, setStatus] = useState('')
@@ -48,7 +51,6 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(e)
     setStatus('loading')
 
     try {
@@ -85,7 +87,7 @@ const Form = () => {
               exit="exit"
             >
               <BlendingTypography variant="h5">
-                I&apos;ve got your mail
+                I&apos;ve got your mail.
               </BlendingTypography>
             </Box>
           )}
@@ -136,6 +138,9 @@ const Form = () => {
                 exit="exit"
                 fullWidth
                 required
+                onMouseEnter={handleHover}
+                onMouseLeave={handleLeave}
+                whileTap={handleTap}
               />
             </Box>
 
@@ -167,6 +172,9 @@ const Form = () => {
                 exit="exit"
                 fullWidth
                 required
+                onMouseEnter={handleHover}
+                onMouseLeave={handleLeave}
+                whileTap={handleTap}
               />
             </Box>
           </Box>

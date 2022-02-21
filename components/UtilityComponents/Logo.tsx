@@ -3,6 +3,8 @@ import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 import { SxProps } from '@mui/system'
 import { useRouter } from 'next/router'
+import useCursor from '../../utils/useCursor'
+import { motion } from 'framer-motion'
 
 const sx: SxProps = {
   root: {
@@ -16,13 +18,20 @@ const sx: SxProps = {
 
 const Logo = () => {
   const router = useRouter()
+  const { handleHover, handleLeave, handleTap } = useCursor()
 
   if (router.pathname === '/works') return null
 
   return (
-    <Box sx={sx.root}>
+    <Box
+      sx={sx.root}
+      component={motion.div}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleLeave}
+      whileTap={handleTap}
+    >
       <Typography component="h1">
-        <Link href="/about" scroll={false}>
+        <Link href="/about">
           <a>JOHN MICHAEL ASISTIO</a>
         </Link>
       </Typography>

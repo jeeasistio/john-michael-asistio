@@ -5,6 +5,7 @@ import Box from '@mui/material/Box'
 import Link from 'next/link'
 import TransitioningTypography from './TransitioningTypography'
 import { useRouter } from 'next/router'
+import useCursor from '../../utils/useCursor'
 
 const sx: SxProps = {
   linkCtn: {
@@ -39,6 +40,7 @@ interface Props {
 const NavLink = ({ link }: Props) => {
   const router = useRouter()
   const hoverControls = useAnimation()
+  const { handleHover, handleLeave, handleTap } = useCursor()
 
   const slideIn = () => {
     hoverControls.start('animate')
@@ -57,6 +59,9 @@ const NavLink = ({ link }: Props) => {
           onHoverEnd={slideOut}
           onTapStart={slideIn}
           onTapCancel={slideOut}
+          onMouseEnter={handleHover}
+          onMouseLeave={handleLeave}
+          whileTap={handleTap}
         >
           <Box
             sx={sx.overlay}

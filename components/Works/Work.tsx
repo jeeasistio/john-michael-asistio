@@ -71,7 +71,7 @@ const Work = ({ title, image, link }: Props) => {
 
   return (
     <Box sx={sx.root} component={motion.div}>
-      <Link href={`/work/${link}`} scroll={false}>
+      <Link href={`/work/${link}`}>
         <a>
           <Box
             sx={sx.imageCtn}

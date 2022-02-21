@@ -6,6 +6,7 @@ import { slideRight } from '../../animations/slideRight'
 import Box from '@mui/material/Box'
 import { slideUp } from '../../animations/slideUp'
 import Link from 'next/link'
+import useCursor from '../../utils/useCursor'
 
 const sx: SxProps = {
   iconCtn: {
@@ -34,6 +35,7 @@ interface Props {
 
 const SocialLink = ({ icon, link }: Props) => {
   const hoverControls = useAnimation()
+  const { handleHover, handleLeave, handleTap } = useCursor()
 
   const slideIn = () => {
     hoverControls.start('animate')
@@ -53,6 +55,9 @@ const SocialLink = ({ icon, link }: Props) => {
           onTapStart={slideIn}
           onTapCancel={slideOut}
           variants={slideUp}
+          onMouseEnter={handleHover}
+          onMouseLeave={handleLeave}
+          whileTap={handleTap}
         >
           <Box
             sx={sx.overlay}

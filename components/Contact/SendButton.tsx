@@ -4,6 +4,7 @@ import { slideRight } from '../../animations/slideRight'
 import Box from '@mui/material/Box'
 import { slideUp } from '../../animations/slideUp'
 import BlendingTypography from '../StyledComponents/BlendingTypography'
+import useCursor from '../../utils/useCursor'
 
 const sx: SxProps = {
   root: {
@@ -32,6 +33,7 @@ const sx: SxProps = {
 }
 
 const SendButton = () => {
+  const { handleHover, handleLeave, handleTap } = useCursor()
   const hoverControls = useAnimation()
 
   const slideIn = () => {
@@ -42,7 +44,14 @@ const SendButton = () => {
   }
 
   return (
-    <Box sx={sx.root} component="button" type="submit">
+    <Box
+      sx={sx.root}
+      component="button"
+      type="submit"
+      onMouseEnter={handleHover}
+      onMouseLeave={handleLeave}
+      whileTap={handleTap}
+    >
       <Box
         sx={sx.iconCtn}
         component={motion.div}

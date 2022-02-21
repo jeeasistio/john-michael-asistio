@@ -4,6 +4,7 @@ import { motion, useAnimation } from 'framer-motion'
 import { slideRight } from '../../animations/slideRight'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 import Link from 'next/link'
+import useCursor from '../../utils/useCursor'
 
 const sx: SxProps = {
   root: {
@@ -29,6 +30,7 @@ interface Props {
 
 const SocialLink = ({ name, link }: Props) => {
   const hoverControls = useAnimation()
+  const { handleHover, handleLeave, handleTap } = useCursor()
 
   const slideIn = () => {
     hoverControls.start('animate')
@@ -47,6 +49,9 @@ const SocialLink = ({ name, link }: Props) => {
           onHoverEnd={slideOut}
           onTapStart={slideIn}
           onTapCancel={slideOut}
+          onMouseEnter={handleHover}
+          onMouseLeave={handleLeave}
+          whileTap={handleTap}
         >
           <Box
             sx={sx.underline}
