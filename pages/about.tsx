@@ -18,7 +18,8 @@ import Hi from '../components/About/Hi'
 
 const sx: SxProps = {
   aboutCtn: {
-    position: 'relative'
+    position: 'relative',
+    overflow: 'hidden'
   }
 }
 
