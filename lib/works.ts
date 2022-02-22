@@ -21,7 +21,6 @@ const works: Work[] = [
     image: '/save-mother-earth/save_mother_earth.jpg',
     images: [
       '/save-mother-earth/hero_page.png',
-      '/save-mother-earth/nav.png',
       '/save-mother-earth/article.png',
       '/save-mother-earth/causes.png',
       '/save-mother-earth/solutions.png',
@@ -42,7 +41,6 @@ const works: Work[] = [
     image: '/nescoffee/nescoffee.jpg',
     images: [
       '/nescoffee/hero_page.png',
-      '/nescoffee/zoom_out.png',
       '/nescoffee/review.png',
       '/nescoffee/products.png',
       '/nescoffee/outro.png',
@@ -63,7 +61,6 @@ const works: Work[] = [
     image: '/bookshelf/bookshelf.jpg',
     images: [
       '/bookshelf/hero_page.png',
-      '/bookshelf/zoom_out.png',
       '/bookshelf/login.png',
       '/bookshelf/book.png',
       '/bookshelf/add_book.png',
@@ -85,7 +82,6 @@ const works: Work[] = [
     image: '/gintama/gintama.jpg',
     images: [
       '/gintama/hero_page.png',
-      '/gintama/zoom_out.png',
       '/gintama/global_thread.png',
       '/gintama/post.png',
       '/gintama/episode.png',
@@ -106,7 +102,6 @@ const works: Work[] = [
     image: '/shopy/shopy.jpg',
     images: [
       '/shopy/hero_page.png',
-      '/shopy/zoom_out.png',
       '/shopy/shop.png',
       '/shopy/cart.png',
       '/shopy/history.png',
