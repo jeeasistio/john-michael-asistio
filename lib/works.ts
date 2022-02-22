@@ -4,6 +4,7 @@ export interface Work {
   image: string
   images: string[]
   link: string
+  online_link: string
   index: number
 }
 
@@ -27,6 +28,7 @@ const works: Work[] = [
       '/save-mother-earth/solution.png'
     ],
     link: 'save-mother-earth',
+    online_link: 'https://save-mother-earth.vercel.app/',
     index: 1
   },
   {
@@ -47,6 +49,7 @@ const works: Work[] = [
       '/nescoffee/contacts.png'
     ],
     link: 'nescoffee',
+    online_link: 'https://nescoffee.vercel.app/',
     index: 2
   },
   {
@@ -67,6 +70,7 @@ const works: Work[] = [
       '/bookshelf/requests.png'
     ],
     link: 'bookshelf',
+    online_link: 'https://bookshelf-ph.vercel.app/',
     index: 3
   },
   {
@@ -88,6 +92,7 @@ const works: Work[] = [
       '/gintama/user.png'
     ],
     link: 'gintama-discussion',
+    online_link: 'https://gintama-discussion.vercel.app/',
     index: 4
   },
   {
@@ -108,6 +113,7 @@ const works: Work[] = [
       '/shopy/contacts.png'
     ],
     link: 'shopy',
+    online_link: 'https://shopy-app.vercel.app/',
     index: 5
   }
 ]

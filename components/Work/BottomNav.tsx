@@ -1,5 +1,7 @@
 import Box from '@mui/material/Box'
 import { SxProps } from '@mui/system'
+import { motion } from 'framer-motion'
+import { staggerCtn } from '../../animations/slideUp'
 import { Work } from '../../lib/works'
 import BackButton from './BackButton'
 import NextButton from './NextButton'
@@ -21,7 +23,14 @@ interface Props {
 
 const BottomNav = ({ next }: Props) => {
   return (
-    <Box sx={sx.root}>
+    <Box
+      sx={sx.root}
+      component={motion.div}
+      variants={staggerCtn}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+    >
       <BackButton />
       <NextButton next={next} />
     </Box>

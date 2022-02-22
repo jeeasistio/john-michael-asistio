@@ -35,7 +35,11 @@ const sx: SxProps = {
   }
 }
 
-const VisitButton = () => {
+interface Props {
+  link: string
+}
+
+const VisitButton = ({ link }: Props) => {
   const hoverControls = useAnimation()
   const { handleHover, handleLeave, handleTap } = useCursor()
 
@@ -47,7 +51,7 @@ const VisitButton = () => {
   }
 
   return (
-    <Link href="#" passHref>
+    <Link href={link} passHref>
       <a target="_blank">
         <Box
           sx={sx.root}

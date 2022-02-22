@@ -34,8 +34,7 @@ const WORK = works[INDEX]
 const NEXTWORK = works[INDEX + 1]
 
 const SaveMotherEarth: NextPage<Props> = () => {
-  const { title, description, image, images } = WORK
-
+  const { title, description, image, images, online_link: onlineLink } = WORK
   return (
     <div>
       <Head>
@@ -56,7 +55,11 @@ const SaveMotherEarth: NextPage<Props> = () => {
           </Box>
 
           <Box sx={sx.descCtn}>
-            <Description title={title} description={description} />
+            <Description
+              title={title}
+              description={description}
+              onlineLink={onlineLink}
+            />
           </Box>
           <Images images={images} />
           <BottomNav next={NEXTWORK} />

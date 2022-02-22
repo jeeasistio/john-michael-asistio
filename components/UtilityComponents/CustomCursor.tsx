@@ -3,6 +3,15 @@ import { motion } from 'framer-motion'
 import useCursor from '../../utils/useCursor'
 import { inTransition, outTransition } from '../../utils/utils'
 
+const cursorTransition = {
+  type: 'spring',
+  damping: 15,
+  mass: 0.8,
+  stiffness: 150,
+  x: inTransition(),
+  y: outTransition()
+}
+
 interface Props {
   componentRef: HTMLElement
 }
@@ -35,97 +44,87 @@ const CustomCursor = ({ componentRef }: Props) => {
       style={{
         position: 'absolute',
         pointerEvents: 'none',
-        zIndex: '1200'
+        zIndex: '1200',
+        mixBlendMode: 'difference',
+        borderRadius: '50%',
+        border: '2px solid #fff',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflow: 'hidden'
       }}
       variants={{
         default: {
-          mixBlendMode: 'difference',
           x: mouseXPosition - 10,
           y: mouseYPosition - 10,
           width: 20,
           height: 20,
-          borderRadius: '50%',
-          border: '2px solid #fff',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          transition: {
-            x: inTransition(),
-            y: inTransition()
-          }
+          transition: cursorTransition
         },
         hover: {
-          mixBlendMode: 'difference',
           x: mouseXPosition - 20,
           y: mouseYPosition - 20,
           width: 40,
           height: 40,
-          borderRadius: '50%',
-          border: '2px solid #fff',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
           padding: 5,
-          transition: {
-            x: outTransition(),
-            y: outTransition()
-          }
+          transition: cursorTransition
         },
         tap: {
-          mixBlendMode: 'difference',
-          x: mouseXPosition - 15,
-          y: mouseYPosition - 15,
-          width: 30,
-          height: 30,
-          borderRadius: '50%',
-          border: '2px solid #fff',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          transition: {
-            x: outTransition(),
-            y: outTransition()
-          }
+          x: mouseXPosition - 20,
+          y: mouseYPosition - 20,
+          width: 40,
+          height: 40,
+          padding: 5,
+          transition: cursorTransition
         }
       }}
       animate={cursorVariant}
     >
       <motion.div
-        style={{}}
+        style={{
+          position: 'relative',
+          borderRadius: 'inherit',
+          backgroundColor: '#fff'
+        }}
         variants={{
           default: {
             width: '110%',
             height: '110%',
-            borderRadius: 'inherit',
-            backgroundColor: '#fff',
-            transition: {
-              x: inTransition(),
-              y: inTransition()
-            }
+            transition: cursorTransition
           },
           hover: {
             width: '40%',
             height: '40%',
-            borderRadius: 'inherit',
-            backgroundColor: '#fff',
-            transition: {
-              x: outTransition(),
-              y: outTransition()
-            }
+            transition: cursorTransition
           },
           tap: {
-            width: '100%',
-            height: '100%',
-            borderRadius: 'inherit',
-            backgroundColor: '#fff',
-            transition: {
-              x: outTransition(),
-              y: outTransition()
-            }
+            width: '40%',
+            height: '40%',
+            transition: cursorTransition
           }
         }}
         animate={cursorVariant}
-      />
+      >
+        <motion.div
+          style={{
+            position: 'absolute',
+            borderRadius: 'inherit',
+            backgroundColor: '#fff',
+            top: 0,
+            left: 0,
+            opacity: 0.3,
+            transform: 'translate(-50%, -50%)'
+          }}
+          variants={{
+            tap: {
+              width: '500%',
+              height: '500%',
+              transition: cursorTransition
+            }
+          }}
+          animate={cursorVariant}
+        />
+      </motion.div>
     </motion.div>
   )
 }

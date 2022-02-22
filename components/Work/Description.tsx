@@ -19,14 +19,15 @@ const sx: SxProps = {
 interface Props {
   title: string
   description: string[]
+  onlineLink: string
 }
 
-const Description = ({ title, description }: Props) => {
+const Description = ({ title, description, onlineLink }: Props) => {
   return (
     <Box sx={sx.root}>
       <Box sx={sx.titleCtn}>
         <TransitioningTypography text={title} variant="h1" />
-        <VisitButton />
+        <VisitButton link={onlineLink} />
       </Box>
 
       <Box p={[0, '2%']}>
