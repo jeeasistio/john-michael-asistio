@@ -58,6 +58,7 @@ const Contact: NextPage = () => {
             variants={staggerCtn}
             initial="initial"
             whileInView="animate"
+            viewport={{ once: true }}
           >
             <LetsCreate />
             <Thanks />
@@ -70,6 +71,7 @@ const Contact: NextPage = () => {
             initial="initial"
             whileInView="animate"
             exit="exit"
+            viewport={{ once: true }}
           >
             <LayoutGroup>
               <FeelFree />
