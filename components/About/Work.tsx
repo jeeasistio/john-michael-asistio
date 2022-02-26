@@ -9,6 +9,7 @@ import { slideRight } from '../../animations/slideRight'
 import { staggerCtn } from '../../animations/slideUp'
 import works, { Work } from '../../lib/works'
 import useCursor from '../../utils/useCursor'
+import { inTransition } from '../../utils/utils'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
 const sx: SxProps = {
@@ -123,6 +124,15 @@ const Work = ({ title, image, index }: Props) => {
               x: mouse.x,
               y: mouse.y,
               opacity: showing
+            }}
+            transition={{
+              opacity: {
+                type: 'spring',
+                damping: 20,
+                mass: 0.8,
+                stiffness: 200
+              },
+              default: inTransition()
             }}
           >
             <Box sx={sx.imageInnerCtn}>

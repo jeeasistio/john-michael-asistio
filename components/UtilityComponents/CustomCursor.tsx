@@ -4,12 +4,9 @@ import useCursor from '../../utils/useCursor'
 import { inTransition, outTransition } from '../../utils/utils'
 
 const cursorTransition = {
-  type: 'spring',
-  damping: 15,
-  mass: 0.8,
-  stiffness: 150,
   x: inTransition(),
-  y: outTransition()
+  y: outTransition(),
+  default: { type: 'spring', damping: 15, mass: 0.8, stiffness: 150 }
 }
 
 interface Props {
