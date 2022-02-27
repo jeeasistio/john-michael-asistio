@@ -120,11 +120,8 @@ const Work = ({ title, image, index }: Props) => {
           <Box
             sx={sx.imageCtn}
             component={motion.div}
-            animate={{
-              x: mouse.x,
-              y: mouse.y,
-              opacity: showing
-            }}
+            initial={{ x: 600 }}
+            animate={{ x: mouse.x, y: mouse.y, opacity: showing }}
             transition={{
               opacity: { duration: 0.1, delay: 0.1 },
               type: 'spring',
