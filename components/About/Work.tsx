@@ -126,13 +126,11 @@ const Work = ({ title, image, index }: Props) => {
               opacity: showing
             }}
             transition={{
-              opacity: {
-                type: 'spring',
-                damping: 20,
-                mass: 0.8,
-                stiffness: 200
-              },
-              default: inTransition()
+              opacity: { duration: 0.1, delay: 0.1 },
+              type: 'spring',
+              damping: 30,
+              mass: 0.3,
+              stiffness: 300
             }}
           >
             <Box sx={sx.imageInnerCtn}>
