@@ -18,10 +18,10 @@ const WhatIDo = () => {
       <TransitioningTypography text="back end. I prefer doing front-end works" />
       <TransitioningTypography text="because I enjoy seeing the works I've" />
       <TransitioningTypography text="done. But I also want to explore back" />
-      <TransitioningTypography text="end to develop my skills on that" />
-      <TransitioningTypography text="part. I mostly use Next JS and Material" />
-      <TransitioningTypography text="UI as my frameworks when making big" />
-      <TransitioningTypography text="projects." />
+      <TransitioningTypography text="end to develop my skills on that part." />
+      <TransitioningTypography text="I mostly use Next JS and Material UI as" />
+      <TransitioningTypography text="my frameworks when making big projects" />
+      {/* <TransitioningTypography text="projects." */>} 
     </Box>
   )
 }
