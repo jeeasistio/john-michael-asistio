@@ -21,7 +21,6 @@ const WhatIDo = () => {
       <TransitioningTypography text="end to develop my skills on that part." />
       <TransitioningTypography text="I mostly use Next JS and Material UI as" />
       <TransitioningTypography text="my frameworks when making big projects" />
-      {/* <TransitioningTypography text="projects."> */} 
     </Box>
   )
 }
