@@ -33,7 +33,7 @@ const sx: SxProps = {
 }
 
 const SendButton = () => {
-  const { handleHover, handleLeave, handleTap } = useCursor()
+  const { handleHover, handleLeave } = useCursor()
   const hoverControls = useAnimation()
 
   const slideIn = () => {
@@ -46,11 +46,12 @@ const SendButton = () => {
   return (
     <Box
       sx={sx.root}
-      component="button"
+      component={motion.button}
       type="submit"
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
-      whileTap={handleTap}
+      onTapStart={handleHover}
+      onTapCancel={handleLeave}
     >
       <Box
         sx={sx.iconCtn}

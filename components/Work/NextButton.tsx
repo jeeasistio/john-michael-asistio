@@ -37,9 +37,11 @@ const NextButton = ({ next }: Props) => {
 
   const slideIn = () => {
     hoverControls.start('animate')
+    handleTap()
   }
   const slideOut = () => {
     hoverControls.start('initial')
+    handleLeave()
   }
 
   return (
@@ -52,7 +54,6 @@ const NextButton = ({ next }: Props) => {
       onTapCancel={slideOut}
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
-      whileTap={handleTap}
     >
       <Link href={`/work/${next.link}`}>
         <a>

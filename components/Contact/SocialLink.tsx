@@ -39,9 +39,11 @@ const SocialLink = ({ icon, link }: Props) => {
 
   const slideIn = () => {
     hoverControls.start('animate')
+    handleTap()
   }
   const slideOut = () => {
     hoverControls.start('initial')
+    handleLeave()
   }
 
   return (
@@ -57,7 +59,6 @@ const SocialLink = ({ icon, link }: Props) => {
           variants={slideUp}
           onMouseEnter={handleHover}
           onMouseLeave={handleLeave}
-          whileTap={handleTap}
         >
           <Box
             sx={sx.overlay}

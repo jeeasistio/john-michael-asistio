@@ -6,9 +6,6 @@ const nextConfig = {
     GOOGLE_PASS: 'portfolio21232',
     ADMIN_USER: 'jeeasistio08@gmail.com'
   },
-  typescript: {
-    ignoreBuildErrors: true
-  },
   async rewrites() {
     return [
       {

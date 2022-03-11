@@ -31,9 +31,11 @@ const BackButton = () => {
 
   const slideIn = () => {
     hoverControls.start('animate')
+    handleTap()
   }
   const slideOut = () => {
     hoverControls.start('initial')
+    handleLeave()
   }
 
   return (
@@ -46,7 +48,6 @@ const BackButton = () => {
       onTapCancel={slideOut}
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
-      whileTap={handleTap}
     >
       <Link href="/works">
         <a>

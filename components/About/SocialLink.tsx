@@ -34,9 +34,11 @@ const SocialLink = ({ name, link }: Props) => {
 
   const slideIn = () => {
     hoverControls.start('animate')
+    handleTap()
   }
   const slideOut = () => {
     hoverControls.start('initial')
+    handleLeave()
   }
 
   return (
@@ -51,7 +53,6 @@ const SocialLink = ({ name, link }: Props) => {
           onTapCancel={slideOut}
           onMouseEnter={handleHover}
           onMouseLeave={handleLeave}
-          whileTap={handleTap}
         >
           <Box
             sx={sx.underline}

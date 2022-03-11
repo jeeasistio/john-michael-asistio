@@ -61,7 +61,8 @@ const VisitButton = ({ link }: Props) => {
           viewport={{ once: true }}
           onMouseEnter={handleHover}
           onMouseLeave={handleLeave}
-          whileTap={handleTap}
+          onTapStart={handleTap}
+          onTapCancel={handleLeave}
         >
           <Box
             sx={sx.iconCtn}

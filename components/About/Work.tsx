@@ -9,7 +9,6 @@ import { slideRight } from '../../animations/slideRight'
 import { staggerCtn } from '../../animations/slideUp'
 import works, { Work } from '../../lib/works'
 import useCursor from '../../utils/useCursor'
-import { inTransition } from '../../utils/utils'
 import TransitioningTypography from '../UtilityComponents/TransitioningTypography'
 
 const sx: SxProps = {
@@ -68,17 +67,19 @@ const Work = ({ title, image, index }: Props) => {
 
   const slideIn = () => {
     hoverControls.start('animate')
+    handleTap()
   }
   const slideOut = () => {
     hoverControls.start('initial')
+    handleLeave()
   }
-  const handleMouseMove = (e) => {
+  const handleMouseMove = () => {
     show(1)
     handleHover()
   }
   const handleMouseLeave = () => {
-    handleLeave()
     show(0)
+    handleLeave()
   }
 
   return (
@@ -94,7 +95,6 @@ const Work = ({ title, image, index }: Props) => {
           onTapCancel={slideOut}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          whileTap={handleTap}
           variants={staggerCtn}
           initial="initial"
           whileInView="animate"
@@ -121,13 +121,19 @@ const Work = ({ title, image, index }: Props) => {
             sx={sx.imageCtn}
             component={motion.div}
             initial={{ x: 600 }}
-            animate={{ x: mouse.x, y: mouse.y, opacity: showing }}
+            animate={{
+              x: mouse.x || 600,
+              y: mouse.y || 0,
+              opacity: showing
+            }}
             transition={{
               opacity: { duration: 0.1, delay: 0.1 },
-              type: 'spring',
-              damping: 30,
-              mass: 0.3,
-              stiffness: 300
+              default: {
+                type: 'spring',
+                damping: 30,
+                mass: 0.3,
+                stiffness: 300
+              }
             }}
           >
             <Box sx={sx.imageInnerCtn}>

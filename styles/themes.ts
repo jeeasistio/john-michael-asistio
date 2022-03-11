@@ -19,7 +19,7 @@ let theme = createTheme({
   },
   typography: {
     fontSize: 16,
-    fontFamily: ["Raleway", "Roboto"],
+    fontFamily: '"Raleway", "Roboto"',
     h1: {
       fontFamily: 'Raleway'
     },

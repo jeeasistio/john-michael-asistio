@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useAnimation } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 import { slideRight } from '../../animations/slideRight'
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
@@ -44,9 +44,11 @@ const NavLink = ({ link }: Props) => {
 
   const slideIn = () => {
     hoverControls.start('animate')
+    handleTap()
   }
   const slideOut = () => {
     hoverControls.start('initial')
+    handleLeave()
   }
 
   return (
@@ -61,7 +63,6 @@ const NavLink = ({ link }: Props) => {
           onTapCancel={slideOut}
           onMouseEnter={handleHover}
           onMouseLeave={handleLeave}
-          whileTap={handleTap}
         >
           <Box
             sx={sx.overlay}

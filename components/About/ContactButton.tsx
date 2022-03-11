@@ -54,7 +54,8 @@ const ContactButton = () => {
           viewport={{ once: true }}
           onMouseEnter={handleHover}
           onMouseLeave={handleLeave}
-          whileTap={handleTap}
+          onTapStart={handleTap}
+          onTapCancel={handleLeave}
         >
           <Box
             sx={sx.iconCtn}

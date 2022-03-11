@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField'
 import { slideUp } from '../../animations/slideUp'
 import { AnimatePresence, motion } from 'framer-motion'
 import SendButton from './SendButton'
-import { useState } from 'react'
+import { ChangeEvent, FormEventHandler, useState } from 'react'
 import axios from 'axios'
 import BlendingTypography from '../StyledComponents/BlendingTypography'
 import useCursor from '../../utils/useCursor'
@@ -46,11 +46,17 @@ const Form = () => {
   const [message, setMessage] = useState('')
   const [status, setStatus] = useState('')
 
-  const handleEmail = (e) => setEmail(e.target.value)
-  const handleMessage = (e) => setMessage(e.target.value)
+  const handleEmail = (
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => setEmail(e.target.value)
+  const handleMessage = (
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => setMessage(e.target.value)
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleSubmit: FormEventHandler<HTMLFormElement> | undefined = async (
+    e
+  ) => {
+    e?.preventDefault()
     setStatus('loading')
 
     try {
@@ -125,23 +131,27 @@ const Form = () => {
                 </Box>
               </Box>
 
-              <TextField
-                sx={sx.inputStyle}
-                size="small"
-                value={email}
-                type="email"
-                onChange={handleEmail}
+              <Box
                 component={motion.div}
                 variants={slideUp}
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                fullWidth
-                required
                 onMouseEnter={handleHover}
                 onMouseLeave={handleLeave}
-                whileTap={handleTap}
-              />
+                onTapStart={handleTap}
+                onTapCancel={handleLeave}
+              >
+                <TextField
+                  sx={sx.inputStyle}
+                  size="small"
+                  value={email}
+                  type="email"
+                  onChange={handleEmail}
+                  fullWidth
+                  required
+                />
+              </Box>
             </Box>
 
             <Box sx={sx.fieldCtn}>
@@ -159,23 +169,27 @@ const Form = () => {
                 </Box>
               </Box>
 
-              <TextField
-                sx={sx.inputStyle}
-                size="small"
-                multiline
-                value={message}
-                onChange={handleMessage}
+              <Box
                 component={motion.div}
                 variants={slideUp}
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                fullWidth
-                required
                 onMouseEnter={handleHover}
                 onMouseLeave={handleLeave}
-                whileTap={handleTap}
-              />
+                onTapStart={handleTap}
+                onTapCancel={handleLeave}
+              >
+                <TextField
+                  sx={sx.inputStyle}
+                  size="small"
+                  multiline
+                  value={message}
+                  onChange={handleMessage}
+                  fullWidth
+                  required
+                />
+              </Box>
             </Box>
           </Box>
         )}

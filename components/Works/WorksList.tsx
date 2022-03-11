@@ -30,13 +30,15 @@ const sx: SxProps = {
 }
 
 const WorksList = () => {
-  const scrollRef = useRef(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
   const [scrollRange, setScrollRange] = useState(0)
   const [vw, setVw] = useState(0)
 
   useIsomorphicLayoutEffect(() => {
-    setVw(window.innerWidth)
-    setScrollRange(scrollRef.current.scrollWidth)
+    if (scrollRef.current) {
+      setVw(window.innerWidth)
+      setScrollRange(scrollRef.current.scrollWidth)
+    }
   }, [scrollRef])
 
   const { scrollYProgress } = useViewportScroll()
@@ -46,9 +48,7 @@ const WorksList = () => {
   return (
     <>
       <Box sx={sx.title}>
-        <BlendingTypography component="h1" variant="h2">
-          SELECTED WORKS
-        </BlendingTypography>
+        <BlendingTypography variant="h2">SELECTED WORKS</BlendingTypography>
       </Box>
 
       <Box sx={sx.worksCtn}>

@@ -16,14 +16,16 @@ interface Props {
 }
 
 const ParallaxCtn = ({ children, boxStyle }: Props) => {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
   const [elemTop, setElemTop] = useState(0)
   const [vh, setVh] = useState(0)
   const { scrollY } = useViewportScroll()
 
   useIsomorphicLayoutEffect(() => {
-    setElemTop(ref.current.offsetTop)
-    setVh(window.innerHeight)
+    if (ref.current) {
+      setElemTop(ref.current.offsetTop)
+      setVh(window.innerHeight)
+    }
   }, [ref, scrollY])
 
   const yValue = useTransform(

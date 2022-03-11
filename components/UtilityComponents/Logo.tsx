@@ -28,7 +28,8 @@ const Logo = () => {
       component={motion.div}
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
-      whileTap={handleTap}
+      onTapStart={handleTap}
+      onTapCancel={handleLeave}
     >
       <Typography component="h1">
         <Link href="/about">

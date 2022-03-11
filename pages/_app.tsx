@@ -17,18 +17,17 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline>
-        <CursorProvider>
-          <AnimatePresence exitBeforeEnter>
-            <motion.div ref={ref}>
-              {matches && router.pathname !== '/works' && (
-                <CustomCursor componentRef={ref.current as HTMLDivElement} />
-              )}
-              <Component {...pageProps} key={router.route} ref={ref} />
-            </motion.div>
-          </AnimatePresence>
-        </CursorProvider>
-      </CssBaseline>
+      <CssBaseline />
+      <CursorProvider>
+        <AnimatePresence exitBeforeEnter>
+          <motion.div ref={ref}>
+            {matches && router.pathname !== '/works' && (
+              <CustomCursor componentRef={ref.current!} />
+            )}
+            <Component {...pageProps} key={router.route} ref={ref} />
+          </motion.div>
+        </AnimatePresence>
+      </CursorProvider>
     </ThemeProvider>
   )
 }
