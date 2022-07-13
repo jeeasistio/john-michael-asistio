@@ -29,7 +29,7 @@ interface Props extends Work {
   next: Work
 }
 
-const INDEX = 1
+const INDEX = 2
 const WORK = works[INDEX]
 const NEXTWORK = works[INDEX + 1]
 
