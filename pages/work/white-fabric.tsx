@@ -31,7 +31,7 @@ interface Props extends Work {
 
 const INDEX = 0
 const WORK = works[INDEX]
-const NEXTWORK = works[0]
+const NEXTWORK = works[1]
 
 const WhiteFabric: NextPage<Props> = () => {
   const { title, description, image, images, online_link: onlineLink } = WORK
