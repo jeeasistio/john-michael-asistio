@@ -29,16 +29,16 @@ interface Props extends Work {
   next: Work
 }
 
-const INDEX = 5
+const INDEX = 0
 const WORK = works[INDEX]
 const NEXTWORK = works[0]
 
-const Shopy: NextPage<Props> = () => {
+const WhiteFabric: NextPage<Props> = () => {
   const { title, description, image, images, online_link: onlineLink } = WORK
   return (
     <div>
       <Head>
-        <title>Shopy</title>
+        <title>White Fabric</title>
       </Head>
 
       <Layout>
@@ -69,4 +69,4 @@ const Shopy: NextPage<Props> = () => {
   )
 }
 
-export default Shopy
+export default WhiteFabric
