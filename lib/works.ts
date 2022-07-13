@@ -10,6 +10,25 @@ export interface Work {
 
 const works: Work[] = [
   {
+    title: 'White Fabric',
+    description: [
+      'An elegant and minimal portfolio for an',
+      'architecture company. Previews work details',
+      'and gallery.'
+    ],
+    image: '/white-fabric/white-fabric.jpg',
+    images: [
+      '/white-fabric/hero_page.png',
+      '/white-fabric/nav.png',
+      '/white-fabric/our-works.png',
+      '/white-fabric/works.png',
+      '/white-fabric/work.png'
+    ],
+    link: 'white-fabric',
+    online_link: 'https://white-fabric.vercel.app/',
+    index: 1
+  },
+  {
     title: 'Save Mother Earth',
     description: [
       "A climate change campaign. Let's stop",
@@ -28,7 +47,7 @@ const works: Work[] = [
     ],
     link: 'save-mother-earth',
     online_link: 'https://save-mother-earth.vercel.app/',
-    index: 1
+    index: 2
   },
   {
     title: 'Nescoffee',
@@ -48,7 +67,7 @@ const works: Work[] = [
     ],
     link: 'nescoffee',
     online_link: 'https://nescoffee.vercel.app/',
-    index: 2
+    index: 3
   },
   {
     title: 'Bookshelf',
@@ -68,7 +87,7 @@ const works: Work[] = [
     ],
     link: 'bookshelf',
     online_link: 'https://bookshelf-ph.vercel.app/',
-    index: 3
+    index: 4
   },
   {
     title: 'Gintama Discussion',
@@ -89,7 +108,7 @@ const works: Work[] = [
     ],
     link: 'gintama-discussion',
     online_link: 'https://gintama-discussion.vercel.app/',
-    index: 4
+    index: 5
   },
   {
     title: 'Shopy',
@@ -109,7 +128,7 @@ const works: Work[] = [
     ],
     link: 'shopy',
     online_link: 'https://shopy-app.vercel.app/',
-    index: 5
+    index: 6
   }
 ]
 
