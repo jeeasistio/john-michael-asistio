@@ -7,78 +7,78 @@ import BlendingTypography from '../StyledComponents/BlendingTypography'
 import useCursor from '../../utils/useCursor'
 
 const sx: SxProps = {
-  root: {
-    overflow: 'hidden',
-    mixBlendMode: 'difference',
-    textAlign: 'center',
-    width: '100%'
-  },
-  iconCtn: {
-    border: 1,
-    borderColor: 'secondary.main',
-    py: '6px',
-    px: 2,
-    position: 'relative',
-    overflow: 'hidden',
-    cursor: 'pointer'
-  },
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'secondary.main'
-  }
+    root: {
+        overflow: 'hidden',
+        mixBlendMode: 'difference',
+        textAlign: 'center',
+        width: '100%'
+    },
+    iconCtn: {
+        border: 1,
+        borderColor: 'secondary.main',
+        py: '6px',
+        px: 2,
+        position: 'relative',
+        overflow: 'hidden',
+        cursor: 'pointer'
+    },
+    overlay: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'secondary.main'
+    }
 }
 
 const SendButton = () => {
-  const { handleHover, handleLeave } = useCursor()
-  const hoverControls = useAnimation()
+    const { handleHover, handleLeave } = useCursor()
+    const hoverControls = useAnimation()
 
-  const slideIn = () => {
-    hoverControls.start('animate')
-  }
-  const slideOut = () => {
-    hoverControls.start('initial')
-  }
+    const slideIn = () => {
+        hoverControls.start('animate')
+    }
+    const slideOut = () => {
+        hoverControls.start('initial')
+    }
 
-  return (
-    <Box
-      sx={sx.root}
-      component={motion.button}
-      type="submit"
-      onMouseEnter={handleHover}
-      onMouseLeave={handleLeave}
-      onTapStart={handleHover}
-      onTapCancel={handleLeave}
-    >
-      <Box
-        sx={sx.iconCtn}
-        component={motion.div}
-        onHoverStart={slideIn}
-        onHoverEnd={slideOut}
-        onTapStart={slideIn}
-        onTapCancel={slideOut}
-        variants={slideUp}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-      >
+    return (
         <Box
-          sx={sx.overlay}
-          component={motion.div}
-          variants={slideRight}
-          initial="initial"
-          animate={hoverControls}
-        />
+            sx={sx.root}
+            component={motion.button}
+            type="submit"
+            onMouseEnter={handleHover}
+            onMouseLeave={handleLeave}
+            onTapStart={handleHover}
+            onTapCancel={handleLeave}
+        >
+            <Box
+                sx={sx.iconCtn}
+                component={motion.div}
+                onHoverStart={slideIn}
+                onHoverEnd={slideOut}
+                onTapStart={slideIn}
+                onTapCancel={slideOut}
+                variants={slideUp}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+            >
+                <Box
+                    sx={sx.overlay}
+                    component={motion.div}
+                    variants={slideRight}
+                    initial="initial"
+                    animate={hoverControls}
+                />
 
-        <BlendingTypography color="secondary" variant="button">
-          Send Mail
-        </BlendingTypography>
-      </Box>
-    </Box>
-  )
+                <BlendingTypography color="secondary" variant="button">
+                    Send Mail
+                </BlendingTypography>
+            </Box>
+        </Box>
+    )
 }
 
 export default SendButton

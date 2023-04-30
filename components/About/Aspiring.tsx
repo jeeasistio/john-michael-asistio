@@ -6,30 +6,30 @@ import Container from '@mui/material/Container'
 import ProfilePhotos from './ProfilePhotos'
 
 const sx: SxProps = {
-  aspiringCtn: {
-    minHeight: '50vh',
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    pt: 12
-  }
+    aspiringCtn: {
+        minHeight: '50vh',
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        pt: 12
+    }
 }
 
 const AspiringCtn = () => {
-  return (
-    <Container
-      sx={sx.aspiringCtn}
-      maxWidth="xl"
-      component={motion.div}
-      variants={staggerCtn}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true }}
-    >
-      <Aspiring />
-      <ProfilePhotos />
-    </Container>
-  )
+    return (
+        <Container
+            sx={sx.aspiringCtn}
+            maxWidth="xl"
+            component={motion.div}
+            variants={staggerCtn}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+        >
+            <Aspiring />
+            <ProfilePhotos />
+        </Container>
+    )
 }
 
 export default AspiringCtn
