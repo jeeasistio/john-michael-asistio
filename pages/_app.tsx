@@ -12,24 +12,28 @@ import { CursorProvider } from '../utils/useCursor'
 config.autoAddCss = false
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  const matches = useMediaQuery('(min-width:900px)')
+    const ref = useRef<HTMLDivElement>(null)
+    const matches = useMediaQuery('(min-width:900px)')
 
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <CursorProvider>
-        <AnimatePresence exitBeforeEnter>
-          <motion.div ref={ref}>
-            {matches && router.pathname !== '/works' && (
-              <CustomCursor componentRef={ref.current!} />
-            )}
-            <Component {...pageProps} key={router.route} ref={ref} />
-          </motion.div>
-        </AnimatePresence>
-      </CursorProvider>
-    </ThemeProvider>
-  )
+    return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <CursorProvider>
+                <AnimatePresence exitBeforeEnter>
+                    <motion.div ref={ref}>
+                        {matches && router.pathname !== '/works' && (
+                            <CustomCursor componentRef={ref.current!} />
+                        )}
+                        <Component
+                            {...pageProps}
+                            key={router.route}
+                            ref={ref}
+                        />
+                    </motion.div>
+                </AnimatePresence>
+            </CursorProvider>
+        </ThemeProvider>
+    )
 }
 
 export default MyApp
