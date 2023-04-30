@@ -19,8 +19,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <CursorProvider>
-                <AnimatePresence exitBeforeEnter>
-                    <motion.div ref={ref}>
+                <AnimatePresence
+                    exitBeforeEnter
+                    onExitComplete={() => window.scrollTo(0, 0)}
+                >
+                    <motion.div ref={ref} key={router.asPath}>
                         {matches && router.pathname !== '/works' && (
                             <CustomCursor componentRef={ref.current!} />
                         )}

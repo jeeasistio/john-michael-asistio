@@ -7,34 +7,34 @@ import BackButton from './BackButton'
 import NextButton from './NextButton'
 
 const sx: SxProps = {
-  root: {
-    marginBottom: 6,
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: { xs: 'column' },
-    gap: 4
-  }
+    root: {
+        marginBottom: 6,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: { xs: 'column' },
+        gap: 4
+    }
 }
 
 interface Props {
-  next: Work
+    next: Work
 }
 
 const BottomNav = ({ next }: Props) => {
-  return (
-    <Box
-      sx={sx.root}
-      component={motion.div}
-      variants={staggerCtn}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true }}
-    >
-      <BackButton />
-      <NextButton next={next} />
-    </Box>
-  )
+    return (
+        <Box
+            sx={sx.root}
+            component={motion.div}
+            variants={staggerCtn}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+        >
+            <BackButton />
+            <NextButton next={next} />
+        </Box>
+    )
 }
 
 export default BottomNav

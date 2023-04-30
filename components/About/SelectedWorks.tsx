@@ -5,29 +5,29 @@ import TransitioningTypography from '../UtilityComponents/TransitioningTypograph
 import WorksList from './WorksList'
 
 const SelectedWorks = () => {
-  return (
-    <Box mt="5%">
-      <Box
-        p={3}
-        mb={4}
-        component={motion.div}
-        variants={staggerCtn}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-      >
-        <TransitioningTypography
-          text="SELECTED WORKS"
-          variant="h2"
-          textStyle={{ fontWeight: 'bold' }}
-        />
-      </Box>
+    return (
+        <Box mt="5%">
+            <Box
+                p={3}
+                mb={4}
+                component={motion.div}
+                variants={staggerCtn}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+            >
+                <TransitioningTypography
+                    text="SELECTED WORKS"
+                    variant="h2"
+                    textStyle={{ fontWeight: 'bold' }}
+                />
+            </Box>
 
-      <Box>
-        <WorksList />
-      </Box>
-    </Box>
-  )
+            <Box>
+                <WorksList />
+            </Box>
+        </Box>
+    )
 }
 
 export default SelectedWorks

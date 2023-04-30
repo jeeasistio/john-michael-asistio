@@ -8,31 +8,33 @@ import NavPage from './NavPage'
 import PageTransition from './PageTransition'
 
 const sx: SxProps = {
-  main: {
-    minHeight: '100vh'
-  }
+    main: {
+        minHeight: '100vh'
+    }
 }
 
 interface Props {
-  children: React.ReactNode
+    children: React.ReactNode
 }
 
 const Layout = ({ children }: Props) => {
-  const [open, handleClick] = useCycle(false, true)
+    const [open, handleClick] = useCycle(false, true)
 
-  return (
-    <Box sx={sx.root}>
-      <Logo />
+    return (
+        <Box sx={sx.root}>
+            <Logo />
 
-      <NavButton open={open} handleClick={handleClick} />
+            <NavButton open={open} handleClick={handleClick} />
 
-      <AnimatePresence exitBeforeEnter>{open && <NavPage />}</AnimatePresence>
+            <AnimatePresence exitBeforeEnter>
+                {open && <NavPage />}
+            </AnimatePresence>
 
-      <PageTransition />
+            <PageTransition />
 
-      <Box sx={sx.main}>{children}</Box>
-    </Box>
-  )
+            <Box sx={sx.main}>{children}</Box>
+        </Box>
+    )
 }
 
 export default Layout
