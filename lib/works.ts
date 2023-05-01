@@ -24,7 +24,7 @@ const works: Work[] = [
             '/feedback-board/roadmap.png'
         ],
         link: 'feedback-board',
-        online_link: 'https://feedback-app-jeeasistio.vercel.app/'
+        online_link: 'https://feedback-board-ph.vercel.app/'
     },
     {
         title: 'White Fabric',

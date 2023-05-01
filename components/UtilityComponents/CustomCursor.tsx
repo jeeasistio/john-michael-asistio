@@ -27,7 +27,7 @@ const CustomCursor = () => {
             style={{
                 position: 'fixed',
                 pointerEvents: 'none',
-                mixBlendMode: 'difference',
+                mixBlendMode: imgSrc === null ? 'difference' : 'normal',
                 zIndex: '1200',
                 borderRadius: '50%',
                 border: '2px solid #fff',
@@ -80,7 +80,7 @@ const CustomCursor = () => {
                         }}
                         component={motion.div}
                         animate={{ opacity: [0, 1] }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.2 }}
                     >
                         <Image
                             src={imgSrc}

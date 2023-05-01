@@ -7,7 +7,7 @@ export const slideDown: Variants = {
         transition: {
             ...outTransition(),
             when: 'beforeChildren',
-            staggerChildren: 0.1
+            staggerChildren: 0.03
         }
     },
     animate: {
@@ -15,15 +15,14 @@ export const slideDown: Variants = {
         transition: {
             ...inTransition(),
             when: 'beforeChildren',
-            staggerChildren: 0.1
+            staggerChildren: 0.03
         }
     },
     exit: {
         y: '-105%',
         transition: {
             ...outTransition(),
-            when: 'afterChildren',
-            staggerChildren: 0.1
+            when: 'afterChildren'
         }
     }
 }
