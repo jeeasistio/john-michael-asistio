@@ -1,6 +1,7 @@
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import {
+    MotionStyle,
     motion,
     useIsomorphicLayoutEffect,
     useSpring,
@@ -13,9 +14,10 @@ import { parallaxTransition } from '../../utils/utils'
 interface Props {
     children: React.ReactNode
     boxStyle?: SxProps
+    rootStyle?: MotionStyle
 }
 
-const ParallaxCtn = ({ children, boxStyle }: Props) => {
+const ParallaxCtn = ({ children, boxStyle, rootStyle }: Props) => {
     const ref = useRef<HTMLDivElement>(null)
     const [elemTop, setElemTop] = useState(0)
     const [vh, setVh] = useState(0)
@@ -36,7 +38,7 @@ const ParallaxCtn = ({ children, boxStyle }: Props) => {
     const y = useSpring(yValue, parallaxTransition())
 
     return (
-        <motion.div style={{ y }} ref={ref}>
+        <motion.div style={{ y, ...rootStyle }} ref={ref}>
             <Box sx={boxStyle}>{children}</Box>
         </motion.div>
     )

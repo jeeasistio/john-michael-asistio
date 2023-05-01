@@ -64,25 +64,25 @@ const works: Work[] = [
         link: 'save-mother-earth',
         online_link: 'https://save-mother-earth.vercel.app/'
     },
-    {
-        title: 'Nescoffee',
-        description: [
-            'An ecommerce website for a coffee',
-            'product. Build up your mood with a glass',
-            'of Nescoffee in the morning. Have a',
-            'break and take everything slowly.'
-        ],
-        image: '/nescoffee/nescoffee.jpg',
-        images: [
-            '/nescoffee/hero-page.png',
-            '/nescoffee/review.png',
-            '/nescoffee/products.png',
-            '/nescoffee/outro.png',
-            '/nescoffee/contacts.png'
-        ],
-        link: 'nescoffee',
-        online_link: 'https://nescoffee.vercel.app/'
-    },
+    // {
+    //     title: 'Nescoffee',
+    //     description: [
+    //         'An ecommerce website for a coffee',
+    //         'product. Build up your mood with a glass',
+    //         'of Nescoffee in the morning. Have a',
+    //         'break and take everything slowly.'
+    //     ],
+    //     image: '/nescoffee/nescoffee.jpg',
+    //     images: [
+    //         '/nescoffee/hero-page.png',
+    //         '/nescoffee/review.png',
+    //         '/nescoffee/products.png',
+    //         '/nescoffee/outro.png',
+    //         '/nescoffee/contacts.png'
+    //     ],
+    //     link: 'nescoffee',
+    //     online_link: 'https://nescoffee.vercel.app/'
+    // },
     {
         title: 'Bookshelf',
         description: [
@@ -121,26 +121,26 @@ const works: Work[] = [
         ],
         link: 'gintama-discussion',
         online_link: 'https://gintama-discussion.vercel.app/'
-    },
-    {
-        title: 'Shopy',
-        description: [
-            'Responsive online shopping app with',
-            'cart and purchase history system.',
-            'Everything in one place. Variety of',
-            'categories. Shop without hassle'
-        ],
-        image: '/shopy/shopy.jpg',
-        images: [
-            '/shopy/hero-page.png',
-            '/shopy/shop.png',
-            '/shopy/cart.png',
-            '/shopy/history.png',
-            '/shopy/contacts.png'
-        ],
-        link: 'shopy',
-        online_link: 'https://shopy-app.vercel.app/'
     }
+    // {
+    //     title: 'Shopy',
+    //     description: [
+    //         'Responsive online shopping app with',
+    //         'cart and purchase history system.',
+    //         'Everything in one place. Variety of',
+    //         'categories. Shop without hassle'
+    //     ],
+    //     image: '/shopy/shopy.jpg',
+    //     images: [
+    //         '/shopy/hero-page.png',
+    //         '/shopy/shop.png',
+    //         '/shopy/cart.png',
+    //         '/shopy/history.png',
+    //         '/shopy/contacts.png'
+    //     ],
+    //     link: 'shopy',
+    //     online_link: 'https://shopy-app.vercel.app/'
+    // }
 ]
 
 export default works

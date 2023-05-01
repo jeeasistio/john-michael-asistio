@@ -10,10 +10,13 @@ import {
 type CursorVariant = 'default' | 'hover' | 'tap'
 
 interface ICursorContext {
+    imgSrc: string | null
     cursorVariant: CursorVariant
     handleHover(): void
     handleLeave(): void
     handleTap(): void
+    handleShowImg(src: string): void
+    handleHideImg(): void
 }
 
 export const CursorContext = createContext<ICursorContext>({} as ICursorContext)
@@ -24,6 +27,7 @@ interface Props {
 
 export const CursorProvider = ({ children }: Props) => {
     const router = useRouter()
+    const [imgSrc, setImgSrc] = useState<string | null>(null)
     const [cursorVariant, setCursorVariant] = useState<CursorVariant>('default')
 
     const handleHover = () => {
@@ -38,6 +42,14 @@ export const CursorProvider = ({ children }: Props) => {
         setCursorVariant('tap')
     }
 
+    const handleShowImg = (src: string) => {
+        setImgSrc(src)
+    }
+
+    const handleHideImg = () => {
+        setImgSrc(null)
+    }
+
     useEffect(() => {
         router.events.on('routeChangeComplete', handleLeave)
         return () => {
@@ -47,7 +59,15 @@ export const CursorProvider = ({ children }: Props) => {
 
     return (
         <CursorContext.Provider
-            value={{ cursorVariant, handleHover, handleLeave, handleTap }}
+            value={{
+                imgSrc,
+                cursorVariant,
+                handleHover,
+                handleLeave,
+                handleTap,
+                handleShowImg,
+                handleHideImg
+            }}
         >
             {children}
         </CursorContext.Provider>

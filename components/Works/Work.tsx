@@ -43,9 +43,11 @@ const sx: SxProps = {
     }
 }
 
-interface Props extends Work {}
+interface Props extends Work {
+    dragging?: boolean
+}
 
-const Work = ({ title, image, link }: Props) => {
+const Work = ({ title, image, link, dragging }: Props) => {
     const hoverControls = useAnimation()
     const imageControls = useAnimation()
     const textControls = useAnimation()
@@ -71,8 +73,14 @@ const Work = ({ title, image, link }: Props) => {
 
     return (
         <Box sx={sx.root} component={motion.div}>
-            <Link href={`/work/${link}`}>
-                <a>
+            <Link href={`/work/${link}`} scroll={false}>
+                <a
+                    draggable={false}
+                    style={{
+                        userSelect: 'none',
+                        pointerEvents: dragging ? 'none' : 'auto'
+                    }}
+                >
                     <Box
                         sx={sx.imageCtn}
                         component={motion.div}
@@ -105,6 +113,7 @@ const Work = ({ title, image, link }: Props) => {
                         </Box>
 
                         <Image
+                            draggable={false}
                             src={image}
                             alt="work"
                             layout="fill"

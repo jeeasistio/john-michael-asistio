@@ -1,7 +1,9 @@
-import useMouse from '@react-hook/mouse-position'
 import { motion } from 'framer-motion'
 import useCursor from '../../utils/useCursor'
 import { inTransition, outTransition } from '../../utils/utils'
+import { Box } from '@mui/material'
+import Image from 'next/image'
+import useMouse from '../../utils/useMouse'
 
 const cursorTransition = {
     x: inTransition(),
@@ -9,46 +11,29 @@ const cursorTransition = {
     default: { type: 'spring', damping: 15, mass: 0.8, stiffness: 150 }
 }
 
-interface Props {
-    componentRef: HTMLElement
-}
-
-const CustomCursor = ({ componentRef }: Props) => {
-    const mouse = useMouse(componentRef, {
-        enterDelay: 100,
-        leaveDelay: 100,
-        fps: 60
-    })
-    const { cursorVariant } = useCursor()
+const CustomCursor = () => {
+    const mouse = useMouse()
+    const { cursorVariant, imgSrc } = useCursor()
 
     let mouseXPosition = 0
     let mouseYPosition = 0
 
-    if (mouse.x !== null) {
-        mouseXPosition = mouse.x as number
-    } else {
-        mouseXPosition = -40
-    }
-
-    if (mouse.y !== null) {
-        mouseYPosition = mouse.y as number
-    } else {
-        mouseYPosition = -40
-    }
+    if (mouse.x === null || mouse.y === null) return <></>
+    mouseXPosition = mouse.x
+    mouseYPosition = mouse.y
 
     return (
         <motion.div
             style={{
-                position: 'absolute',
+                position: 'fixed',
                 pointerEvents: 'none',
-                zIndex: '1200',
                 mixBlendMode: 'difference',
+                zIndex: '1200',
                 borderRadius: '50%',
                 border: '2px solid #fff',
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: 'center',
-                overflow: 'hidden'
+                alignItems: 'center'
             }}
             variants={{
                 default: {
@@ -71,12 +56,44 @@ const CustomCursor = ({ componentRef }: Props) => {
                     y: mouseYPosition - 20,
                     width: 40,
                     height: 40,
-                    padding: 5,
                     transition: cursorTransition
                 }
             }}
             animate={cursorVariant}
         >
+            {imgSrc !== null && (
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        bottom: -10,
+                        right: -10,
+                        width: 250,
+                        height: 300,
+                        pointerEvents: 'none'
+                    }}
+                >
+                    <Box
+                        sx={{
+                            position: 'relative',
+                            width: '100%',
+                            height: '100%'
+                        }}
+                        component={motion.div}
+                        animate={{ opacity: [0, 1] }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <Image
+                            src={imgSrc}
+                            alt="work"
+                            layout="fill"
+                            objectFit="cover"
+                            priority
+                            quality={100}
+                        />
+                    </Box>
+                </Box>
+            )}
+
             <motion.div
                 style={{
                     position: 'relative',
@@ -85,8 +102,8 @@ const CustomCursor = ({ componentRef }: Props) => {
                 }}
                 variants={{
                     default: {
-                        width: '110%',
-                        height: '110%',
+                        width: '100%',
+                        height: '100%',
                         transition: cursorTransition
                     },
                     hover: {
@@ -107,15 +124,15 @@ const CustomCursor = ({ componentRef }: Props) => {
                         position: 'absolute',
                         borderRadius: 'inherit',
                         backgroundColor: '#fff',
-                        top: 0,
-                        left: 0,
                         opacity: 0.3,
+                        top: '50%',
+                        left: '50%',
                         transform: 'translate(-50%, -50%)'
                     }}
                     variants={{
                         tap: {
-                            width: '500%',
-                            height: '500%',
+                            width: '250%',
+                            height: '250%',
                             transition: cursorTransition
                         }
                     }}

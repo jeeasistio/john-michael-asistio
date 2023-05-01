@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
                 >
                     <motion.div ref={ref} key={router.asPath}>
                         {matches && router.pathname !== '/works' && (
-                            <CustomCursor componentRef={ref.current!} />
+                            <CustomCursor />
                         )}
                         <Component
                             {...pageProps}

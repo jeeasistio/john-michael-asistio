@@ -1,8 +1,6 @@
 import { SxProps } from '@mui/material'
 import Box from '@mui/material/Box'
-import useMouse from '@react-hook/mouse-position'
-import { motion, useAnimation, useCycle } from 'framer-motion'
-import Image from 'next/image'
+import { motion, useAnimation } from 'framer-motion'
 import Link from 'next/link'
 import { useRef } from 'react'
 import { slideRight } from '../../animations/slideRight'
@@ -41,18 +39,6 @@ const sx: SxProps = {
         width: '100%',
         height: 3,
         backgroundColor: 'secondary.main'
-    },
-    imageCtn: {
-        position: 'absolute',
-        width: 250,
-        height: 300,
-        margin: '-14%',
-        pointerEvents: 'none'
-    },
-    imageInnerCtn: {
-        position: 'relative',
-        width: '100%',
-        height: '100%'
     }
 }
 
@@ -62,26 +48,20 @@ interface Props extends Work {
 
 const Work = ({ title, image, index }: Props) => {
     const ref = useRef(null)
-    const { handleHover, handleLeave, handleTap } = useCursor()
-    const [showing, show] = useCycle(0, 1)
+    const { handleShowImg, handleHideImg } = useCursor()
     const hoverControls = useAnimation()
-    const mouse = useMouse(ref, {})
 
     const slideIn = () => {
         hoverControls.start('animate')
-        handleTap()
     }
     const slideOut = () => {
         hoverControls.start('initial')
-        handleLeave()
     }
     const handleMouseMove = () => {
-        show(1)
-        handleHover()
+        handleShowImg(image)
     }
     const handleMouseLeave = () => {
-        show(0)
-        handleLeave()
+        handleHideImg()
     }
 
     return (
@@ -125,37 +105,6 @@ const Work = ({ title, image, index }: Props) => {
                         sx={sx.overline}
                         variants={slideRight}
                     />
-
-                    <Box
-                        sx={sx.imageCtn}
-                        component={motion.div}
-                        initial={{ x: 600 }}
-                        animate={{
-                            x: mouse.x || 600,
-                            y: mouse.y || 0,
-                            opacity: showing
-                        }}
-                        transition={{
-                            opacity: { duration: 0.1, delay: 0.1 },
-                            default: {
-                                type: 'spring',
-                                damping: 30,
-                                mass: 0.3,
-                                stiffness: 300
-                            }
-                        }}
-                    >
-                        <Box sx={sx.imageInnerCtn}>
-                            <Image
-                                src={image}
-                                alt="work"
-                                layout="fill"
-                                objectFit="cover"
-                                priority
-                                quality={100}
-                            />
-                        </Box>
-                    </Box>
 
                     <TransitioningTypography
                         text={title.toUpperCase()}

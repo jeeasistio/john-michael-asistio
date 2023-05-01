@@ -31,6 +31,7 @@ const sx: SxProps = {
 
 const WorksList = () => {
     const scrollRef = useRef<HTMLDivElement>(null)
+    const [dragging, setDragging] = useState(false)
     const [scrollRange, setScrollRange] = useState(0)
     const [vw, setVw] = useState(0)
 
@@ -56,15 +57,25 @@ const WorksList = () => {
             <Box sx={sx.worksCtn}>
                 <motion.div
                     ref={scrollRef}
+                    onPanStart={() => {
+                        setDragging(true)
+                    }}
+                    onPan={(e, info) => {
+                        window.scrollBy(0, -info.velocity.x / 15)
+                    }}
+                    onPanEnd={() => {
+                        setDragging(false)
+                    }}
                     style={{
                         display: 'flex',
                         height: '100%',
                         paddingTop: '96px',
-                        x
+                        x,
+                        cursor: 'pointer'
                     }}
                 >
                     {works.map((work) => (
-                        <Work {...work} key={work.title} />
+                        <Work {...work} key={work.title} dragging={dragging} />
                     ))}
                 </motion.div>
             </Box>

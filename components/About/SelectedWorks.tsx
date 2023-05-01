@@ -6,7 +6,7 @@ import WorksList from './WorksList'
 
 const SelectedWorks = () => {
     return (
-        <Box mt="5%">
+        <Box mt="5%" mb="5%">
             <Box
                 p={3}
                 mb={4}
