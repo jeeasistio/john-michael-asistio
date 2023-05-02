@@ -18,8 +18,8 @@ const Hi = () => {
             <TransitioningTypography text="create new things, new experiences and" />
             <TransitioningTypography text="explore new tools and trends. I also love" />
             <TransitioningTypography text="my works. In each project I work on, I" />
-            <TransitioningTypography text="invest plenty amount of time and effort" />
-            <TransitioningTypography text="to ensure its quality." />
+            <TransitioningTypography text="invest plenty of time and effort" />
+            <TransitioningTypography text="to ensure its standard." />
         </Box>
     )
 }
