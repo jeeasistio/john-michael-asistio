@@ -14,13 +14,14 @@ const sx: SxProps = {
 const WhatIDo = () => {
     return (
         <Box sx={sx.root}>
-            <TransitioningTypography text="I usually do front end works with a few" />
-            <TransitioningTypography text="back end. I prefer doing front end works" />
-            <TransitioningTypography text="because I enjoy seeing the works I've" />
-            <TransitioningTypography text="done. But I also want to explore back" />
-            <TransitioningTypography text="end to develop my skills on that part." />
-            <TransitioningTypography text="I mostly use Next JS and Material UI as" />
-            <TransitioningTypography text="my frameworks on making big projects" />
+            <TransitioningTypography text="I usually do frontend works with a few" />
+            <TransitioningTypography text="backend. I prefer doing frontend because" />
+            <TransitioningTypography text="I enjoy looking at the works I've even" />
+            <TransitioningTypography text="though they're not visually appealing." />
+            <TransitioningTypography text="I want to explore backend development to" />
+            <TransitioningTypography text="develop my skills on that part. I mostly" />
+            <TransitioningTypography text="used Next JS and Material UI as my frameworks" />
+            <TransitioningTypography text="on making projects." />
         </Box>
     )
 }
