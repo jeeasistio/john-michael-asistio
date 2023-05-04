@@ -4,6 +4,7 @@ import { inTransition, outTransition } from '../../utils/utils'
 import { Box } from '@mui/material'
 import Image from 'next/image'
 import useMouse from '../../utils/useMouse'
+import works from '../../lib/works'
 
 const cursorTransition = {
     x: inTransition(),
@@ -61,15 +62,17 @@ const CustomCursor = () => {
             }}
             animate={cursorVariant}
         >
-            {imgSrc !== null && (
+            {works.map((work) => (
                 <Box
+                    key={work.title}
                     sx={{
                         position: 'absolute',
                         bottom: -10,
                         right: -10,
                         width: 250,
                         height: 300,
-                        pointerEvents: 'none'
+                        pointerEvents: 'none',
+                        display: imgSrc === work.image ? 'block' : 'none'
                     }}
                 >
                     <Box
@@ -78,12 +81,9 @@ const CustomCursor = () => {
                             width: '100%',
                             height: '100%'
                         }}
-                        component={motion.div}
-                        animate={{ opacity: [0, 1] }}
-                        transition={{ duration: 0.2 }}
                     >
                         <Image
-                            src={imgSrc}
+                            src={work.image}
                             alt="work"
                             layout="fill"
                             objectFit="cover"
@@ -92,7 +92,7 @@ const CustomCursor = () => {
                         />
                     </Box>
                 </Box>
-            )}
+            ))}
 
             <motion.div
                 style={{
