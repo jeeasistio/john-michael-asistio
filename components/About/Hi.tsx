@@ -9,7 +9,7 @@ const sx: SxProps = {
     root: {
         my: 12,
         display: 'flex',
-        justifyContent: { xs: 'center', md: 'space-around' },
+        justifyContent: { xs: 'flex-start', sm: 'space-around' },
         alignItems: 'center'
     }
 }
