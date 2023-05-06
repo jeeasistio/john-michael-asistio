@@ -25,7 +25,7 @@ const sx: SxProps = {
 
 const About = () => {
     const { scrollYProgress } = useViewportScroll()
-    const opacityValue = useTransform(scrollYProgress, [0.75, 0.8], [0, 1])
+    const opacityValue = useTransform(scrollYProgress, [0.7, 0.9], [0, 1])
     const opacity = useSpring(opacityValue, inTransition())
 
     return (
