@@ -16,7 +16,7 @@ const WhatIDo = () => {
         <Box sx={sx.root}>
             <TransitioningTypography text="I usually do frontend works with a few" />
             <TransitioningTypography text="backend. I prefer doing frontend because" />
-            <TransitioningTypography text="I enjoy looking at the works I've even" />
+            <TransitioningTypography text="I enjoy looking at the works I do even" />
             <TransitioningTypography text="though they're not visually appealing." />
             <TransitioningTypography text="I want to explore backend development to" />
             <TransitioningTypography text="develop my skills on that part. I mostly" />
